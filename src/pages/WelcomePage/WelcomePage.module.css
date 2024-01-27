@@ -1,0 +1,16 @@
+.sectionWelcomePager {
+  padding-top: 80px;
+  padding-bottom: 300px;
+  background-image: url(../../images/desctop/Group-36.webp),
+    url(../../images/desctop/Background-Main-Page.webp);
+  background-size: contain, contain;
+  background-position: 0 49px, right bottom;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.welcomePageWraper {
+  display: flex;
+  gap: 81px;
+  justify-content: center;
+  align-items: flex-end;
+}
