@@ -62,7 +62,7 @@
   line-height: 20px; /* 125% */
 }
 
-.waterСonsumptionTrackerButton {
+.waterСonsumptionTrackerLink {
   display: flex;
   padding: 10px 30px;
   justify-content: center;
@@ -71,4 +71,18 @@
   background: var(--dark-blue, #407bff);
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   width: 384px;
+  color: var(--white);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 133.333% */
+  transition: var(--transition);
+}
+
+.waterСonsumptionTrackerLink:hover,
+.waterСonsumptionTrackerLink:focus {
+  font-size: 20px;
+  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
 }

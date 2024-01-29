@@ -1,0 +1,9 @@
+.sectionSigninPage {
+  padding-top: 162px;
+  padding-bottom: 266px;
+  background-image: url(../../images/desctop/Group-36.webp),
+    url(../../images/desctop/Bottle-for-Sign-in.webp);
+  background-repeat: no-repeat, no-repeat;
+  background-size: contain, 1000px;
+  background-position: 50% 50%, -78px -20px;
+}

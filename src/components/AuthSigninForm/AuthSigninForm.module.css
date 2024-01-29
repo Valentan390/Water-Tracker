@@ -1,0 +1,136 @@
+.signinPageWraper {
+  width: 384px;
+  margin-left: 822px;
+  margin-right: 198px;
+}
+
+.signinPageTitle {
+  color: var(--black, #2f2f2f);
+  font-family: Roboto;
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 32px; /* 123.077% */
+  margin-bottom: 16px;
+}
+
+.signinPageForm {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.signinPageLabel {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  color: var(--black, #2f2f2f);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 133.333% */
+  width: 100%;
+  position: relative;
+}
+
+.signinPageInput {
+  display: flex;
+  padding: 12px 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--light-blue-2, #d7e3ff);
+  color: var(--dark-blue, #407bff);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  outline: none;
+}
+
+.signinPageInput::placeholder {
+  color: var(--light-blue-3, #9ebbff);
+}
+
+.signinPageInputError {
+  border: 1px solid var(--red, #ef5050);
+  color: var(--red, #ef5050);
+}
+
+.signinPageInputError::placeholder {
+  color: var(--red, #ef5050);
+}
+
+.signinPageInputButton {
+  position: absolute;
+  top: 43px;
+  left: 336px;
+  padding: 0;
+}
+
+.signinPageInputButtonSvg {
+  width: 23px;
+  height: 23px;
+  stroke: var(--dark-blue, #407bff);
+  padding: 0;
+}
+
+.signinPageButton {
+  display: flex;
+  padding: 10px 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  background: var(--dark-blue, #407bff);
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+  color: var(--Primery-Color-White, #fff);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px; /* 133.333% */
+  width: 100%;
+  transition: var(--transition);
+}
+
+.signinPageButton:hover,
+.signinPageButton:focus {
+  font-size: 20px;
+  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  color: var(--red, #ef5050);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+}
+
+.signinPageLink {
+  color: var(--Primery-Color-Blue, #407bff);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 125% */
+  transition: var(--transition, 250ms cubic-bezier(0.4, 0, 0.2, 1));
+}
+
+.signinPageLink:hover,
+.signinPageLink:focus {
+  color: var(--Secondary-color-5, #ff9d43);
+  font-size: 18px;
+}

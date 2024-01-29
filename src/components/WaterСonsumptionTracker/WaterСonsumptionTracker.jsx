@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import s from "./WaterСonsumptionTracker.module.css";
 import WaterСonsumptionTrackerData from "./WaterСonsumptionTrackerData.js";
 
@@ -21,7 +22,9 @@ const WaterСonsumptionTracker = () => {
           </li>
         ))}
       </ul>
-      <button className={s.waterСonsumptionTrackerButton}>Try tracker</button>
+      <Link to={"/signup"} className={s.waterСonsumptionTrackerLink}>
+        Try tracker
+      </Link>
     </div>
   );
 };
