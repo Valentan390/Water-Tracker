@@ -37,7 +37,7 @@ const AuthSigninForm = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = (data, e) => {
     e.preventDefault();
     if (data) {
       dispatch(logInUser(data));
