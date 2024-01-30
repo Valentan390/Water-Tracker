@@ -5,7 +5,7 @@ import s from "./HeaderLogo.module.css";
 
 const HeaderLogo = () => {
   return (
-    <Link to={"/home"}>
+    <Link to={"/"}>
       <div className={s.logoWraper}>
         <svg width="40" height="40">
           <use href={`${sprite}#icon-Logo`} />

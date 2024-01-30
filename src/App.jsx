@@ -10,7 +10,9 @@ import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute.jsx";
 import SignupPage from "./pages/SignupPage/SignupPage.jsx";
 import SigninPage from "./pages/SigninPage/SigninPage.jsx";
 import HomePage from "./pages/HomePage/HomePage.jsx";
-import { LoginizationRoute } from "./components/loginizationRoute/loginization.jsx";
+import Loader from "./components/Loader/Loader.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,34 +23,42 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? (
-    <b>Refreshing user...</b>
+    <Loader />
   ) : (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<WelcomePage />} />
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <RestrictedRoute redirectTo="/home" component={WelcomePage} />
+            }
+          />
 
-        <Route
-          path="/signup"
-          element={
-            <RestrictedRoute redirectTo="/home" component={SignupPage} />
-          }
-        />
+          <Route
+            path="/signup"
+            element={
+              <RestrictedRoute redirectTo="/home" component={SignupPage} />
+            }
+          />
 
-        <Route
-          path="/signin"
-          element={
-            <LoginizationRoute redirectTo="/home" component={SigninPage} />
-          }
-        />
+          <Route
+            path="/signin"
+            element={
+              <RestrictedRoute redirectTo="/home" component={SigninPage} />
+            }
+          />
 
-        <Route
-          path="/home"
-          element={<PrivateRoute redirectTo="/signin" component={HomePage} />}
-        />
-      </Route>
+          <Route
+            path="/home"
+            element={<PrivateRoute redirectTo="/signin" component={HomePage} />}
+          />
+        </Route>
 
-      <Route path="*" element={<Navigate to="/" />} />
-    </Routes>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+      <ToastContainer position="top-center" autoClose={3000} />
+    </>
   );
 }
 

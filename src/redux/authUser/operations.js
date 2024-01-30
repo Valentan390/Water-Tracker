@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 axios.defaults.baseURL = "https://backend-water-tracker.onrender.com/api";
 
@@ -22,8 +23,10 @@ export const registerUser = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const res = await axios.post("/auth/signup", credentials);
+      toast.success("Registration completed successfully");
       return res.data;
     } catch (error) {
+      toast.error(`Email is already in use`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -42,6 +45,7 @@ export const logInUser = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      toast.error(`Incorrect email or password`);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -57,6 +61,7 @@ export const logOut = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
     // After a successful logout, remove the token from the HTTP header
     clearAuthHeader();
   } catch (error) {
+    toast.error(error.response.data.message);
     return thunkAPI.rejectWithValue(error.message);
   }
 });

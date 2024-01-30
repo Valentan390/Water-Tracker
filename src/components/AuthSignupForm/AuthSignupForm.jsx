@@ -1,5 +1,5 @@
 import s from "./AuthSignupForm.module.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import sprite from "../../images/svg/sprite.svg";
 import { toast } from "react-toastify";
 import { useForm } from "react-hook-form";
@@ -7,7 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../../redux/authUser/operations";
+import { logInUser, registerUser } from "../../redux/authUser/operations";
 
 const emailRegexp = /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
@@ -34,7 +34,9 @@ const AuthSignupForm = () => {
     handleSubmit,
     formState: { errors, isDirty },
     watch,
+    reset,
   } = useForm({
+    mode: "onTouched",
     resolver: yupResolver(schemaSignup),
   });
 
@@ -57,12 +59,32 @@ const AuthSignupForm = () => {
     }));
   };
 
-  const onSubmit = (data) => {
-    if (data) {
-      dispatch(registerUser(data));
-      toast.success("Registration successful");
+  const onSubmit = async ({ username, email, password }, e) => {
+    e.preventDefault();
+    try {
+      await dispatch(registerUser({ username, email, password })).unwrap();
+      await dispatch(logInUser({ email, password }));
+      reset();
+      toast.success("Registration completed successfully");
+    } catch (error) {
+      toast.error(error.message);
     }
   };
+
+  //   const form = e.currentTarget;
+  //   if (data) {
+  //     dispatch(registerUser(data))
+  //       .unwrap()
+  //       .then(() => {
+  //         dispatch(logInUser({ email, password }));
+  //         form.reset();
+  //         toast.success("Registration successful");
+  //       })
+  //       .catch((error) => {
+  //         toast.error("Registration failed: " + error.message);
+  //       });
+  //   }
+  // };
 
   return (
     <div className={s.signupPageWraper}>

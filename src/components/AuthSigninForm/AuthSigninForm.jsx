@@ -25,7 +25,9 @@ const AuthSigninForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm({
+    mode: "onTouched",
     resolver: yupResolver(schemaSignin),
   });
 
@@ -36,8 +38,10 @@ const AuthSigninForm = () => {
   };
 
   const onSubmit = (data) => {
+    e.preventDefault();
     if (data) {
       dispatch(logInUser(data));
+      reset();
     }
   };
   return (
