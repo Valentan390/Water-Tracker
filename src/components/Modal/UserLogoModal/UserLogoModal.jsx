@@ -1,56 +1,41 @@
 import s from "./UserLogoModal.module.css";
 import sprite from "../../../images/svg/sprite.svg";
-import { useEffect } from "react";
-import { createPortal } from "react-dom";
+import { useDispatch } from "react-redux";
+import { setModalContent } from "../../../redux/modal/modalSlice";
 
-const ModalRoot = document.getElementById("ModalRoot");
+const UserLogoModal = () => {
+  const dispatch = useDispatch();
 
-const UserLogoModal = ({ onModal }) => {
-  const handleBackdrop = (event) => {
-    if (event.currentTarget === event.target) {
-      onModal();
-    }
+  const handleOpenUserSettings = () => {
+    dispatch(setModalContent("UserSettings"));
   };
 
-  useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.code === "Escape") {
-        onModal();
-      }
-    };
-
-    window.addEventListener("keydown", handleEscape);
-
-    return () => {
-      window.removeEventListener("keydown", handleEscape);
-    };
-  }, [onModal]);
-  return createPortal(
-    <div className={s.userLogoModalBackdrop} onClick={handleBackdrop}>
-      <div className={s.userLogoModalWrapper}>
-        <button
-          className={s.userLogoModalButton}
-          type="button"
-          onClick={() => onModal()}
-        >
-          <svg className={s.userLogoModalSvg}>
-            <use href={`${sprite}#icon-cog-6-tooth`} />
-          </svg>
-          Setting
-        </button>
-        <button
-          className={s.userLogoModalButton}
-          type="button"
-          onClick={() => onModal()}
-        >
-          <svg className={s.userLogoModalSvg}>
-            <use href={`${sprite}#icon-arrow-right-on-rectangle`} />
-          </svg>
-          Log out
-        </button>
-      </div>
-    </div>,
-    ModalRoot
+  const handleOpenLogOut = () => {
+    dispatch(setModalContent("LogOut"));
+  };
+  return (
+    <div className={s.userLogoModalWrapper}>
+      <button
+        onClick={handleOpenUserSettings}
+        className={s.userLogoModalButton}
+        type="button"
+      >
+        <svg className={s.userLogoModalSvg}>
+          <use href={`${sprite}#icon-cog-6-tooth`} />
+        </svg>
+        Setting
+      </button>
+      <button
+        onClick={handleOpenLogOut}
+        className={s.userLogoModalButton}
+        type="button"
+      >
+        <svg className={s.userLogoModalSvg}>
+          <use href={`${sprite}#icon-arrow-right-on-rectangle`} />
+        </svg>
+        Log out
+      </button>
+    </div>
   );
 };
 

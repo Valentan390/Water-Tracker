@@ -13,6 +13,9 @@ import HomePage from "./pages/HomePage/HomePage.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { setModalContent, setModalStatus } from "./redux/modal/modalSlice.js";
+import ModalContent from "./components/ModalContent/ModalContent.jsx";
+import ModalContainer from "./components/ModalContainer/ModalContainer.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +24,11 @@ function App() {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
+
+  const handleCloseModal = () => {
+    dispatch(setModalStatus(false));
+    dispatch(setModalContent(null));
+  };
 
   return isRefreshing ? (
     <Loader />
@@ -57,6 +65,11 @@ function App() {
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+
+      <ModalContainer onClose={handleCloseModal}>
+        {<ModalContent />}
+      </ModalContainer>
+
       <ToastContainer position="top-center" autoClose={3000} />
     </>
   );
