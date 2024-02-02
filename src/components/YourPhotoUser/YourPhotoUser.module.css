@@ -1,0 +1,62 @@
+.yuorPfotoUserWrapper {
+  margin-bottom: 24px;
+}
+.settingModalYourphoto {
+  color: var(--Primery-Color-Black, #2f2f2f);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px; /* 111.111% */
+  margin-bottom: 8px;
+}
+
+.settingModalDivUploadPhoto {
+  display: flex;
+  gap: 10px;
+  justify-content: start;
+  align-items: center;
+}
+
+.settingModalImg {
+  width: 80px;
+  height: 80px;
+  border-radius: 80px;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+}
+
+.settingModalSvgArrowUpTray {
+  width: 26px;
+  height: 26px;
+  stroke: var(--dark-blue);
+}
+
+.customFileInput {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  justify-content: start;
+  align-items: center;
+  color: var(--Primery-Color-Blue, #407bff);
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px; /* 128.571% */
+}
+
+.customFileInput input {
+  position: absolute;
+  font-size: 100px;
+  right: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.settingModalPhotoInput {
+  display: none;
+}

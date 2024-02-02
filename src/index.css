@@ -149,3 +149,13 @@ textarea {
   clip: rect(0 0 0 0);
   /* overflow: hidden; */
 }
+
+.hidden {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}

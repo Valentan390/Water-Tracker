@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const modalRootElement = document.getElementById("ModalRoot");
 
-const containerVariants = {
+export const containerVariants = {
   hidden: {
     opacity: 0,
   },

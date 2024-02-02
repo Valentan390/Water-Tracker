@@ -1,12 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { registerUser, logInUser, logOut, refreshUser } from "./operations";
+import {
+  registerUser,
+  logInUser,
+  logOutUser,
+  refreshUser,
+  updateAvatarUser,
+  updateInfoUser,
+} from "./operations";
 
 const initialState = {
-  user: {},
+  user: {
+    username: "",
+    email: "",
+    avatarURL: "",
+  },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-  // isRegistered: false,
 };
 
 const handlePending = (state) => {
@@ -27,7 +37,6 @@ const authSlice = createSlice({
       .addCase(registerUser.pending, handlePending)
       .addCase(registerUser.fulfilled, (state, action) => {
         state.user = action.payload;
-        // state.token = action.payload.token;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
@@ -42,23 +51,38 @@ const authSlice = createSlice({
       })
       .addCase(logInUser.rejected, handleRejected)
 
-      .addCase(logOut.pending, handlePending)
-      .addCase(logOut.fulfilled, (state) => {
-        state.user = { name: null, email: null };
+      .addCase(logOutUser.pending, handlePending)
+      .addCase(logOutUser.fulfilled, (state) => {
+        state.user = {};
         state.token = null;
         state.isLoggedIn = false;
         state.isRefreshing = false;
       })
-      .addCase(logOut.rejected, handleRejected)
+      .addCase(logOutUser.rejected, handleRejected)
 
       .addCase(refreshUser.pending, handlePending)
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
-        // state.isRegistered = true;
         state.isRefreshing = false;
       })
-      .addCase(refreshUser.rejected, handleRejected);
+      .addCase(refreshUser.rejected, handleRejected)
+
+      .addCase(updateAvatarUser.pending, handlePending)
+      .addCase(updateAvatarUser.fulfilled, (state, action) => {
+        state.user.avatarURL = action.payload.avatarURL;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(updateAvatarUser.rejected, handleRejected)
+
+      .addCase(updateInfoUser.pending, handlePending)
+      .addCase(updateInfoUser.fulfilled, (state, action) => {
+        state.user = { ...state.user, ...action.payload.result };
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(updateInfoUser.rejected, handleRejected);
   },
 });
 

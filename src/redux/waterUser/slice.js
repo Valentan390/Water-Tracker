@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { logOut } from "../authUser/operations.js";
+import { logOutUser } from "../authUser/operations.js";
 import { fetchTasks, addTask, deleteTask } from "./operations";
 
 const handlePending = (state) => {
@@ -44,7 +44,7 @@ const tasksSlice = createSlice({
         state.items.splice(index, 1);
       })
       .addCase(deleteTask.rejected, handleRejected)
-      .addCase(logOut.fulfilled, (state) => {
+      .addCase(logOutUser.fulfilled, (state) => {
         state.items = [];
         state.error = null;
         state.isLoading = false;

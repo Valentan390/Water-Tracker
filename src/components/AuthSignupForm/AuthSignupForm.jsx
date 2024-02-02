@@ -71,21 +71,6 @@ const AuthSignupForm = () => {
     }
   };
 
-  //   const form = e.currentTarget;
-  //   if (data) {
-  //     dispatch(registerUser(data))
-  //       .unwrap()
-  //       .then(() => {
-  //         dispatch(logInUser({ email, password }));
-  //         form.reset();
-  //         toast.success("Registration successful");
-  //       })
-  //       .catch((error) => {
-  //         toast.error("Registration failed: " + error.message);
-  //       });
-  //   }
-  // };
-
   return (
     <div className={s.signupPageWraper}>
       <h4 className={s.signupPageTitle}>Sign Up</h4>
