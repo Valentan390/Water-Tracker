@@ -1,13 +1,15 @@
-import UserLogoModal from "../../components/Modal/UserLogoModal/UserLogoModal";
 import s from "./HomePage.module.css";
+
+import DailyNorma from "../../components/DailyNorma/DailyNorma";
+import WaterRatioPanel from "../../components/WaterRatioPanel/WaterRatioPanel";
 
 const HomePage = () => {
   return (
     <main>
       <section className={s.sectionHomePage}>
         <div className="container">
-          HomePage
-          {/* <UserLogoModal /> */}
+          <DailyNorma />
+          <WaterRatioPanel />
         </div>
       </section>
     </main>

@@ -126,3 +126,16 @@ export const updateInfoUser = createAsyncThunk(
     }
   }
 );
+export const updatDailiNormaUser = createAsyncThunk(
+  "users/updateDaliNorma",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.patch("/users/dailynorm", credentials);
+
+      return res.data;
+    } catch (error) {
+      toast.error(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

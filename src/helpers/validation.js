@@ -48,12 +48,34 @@ export const updateUserSchema = yup.object().shape({
         return value === newPassword || newPassword === undefined;
       }
     ),
-
-  // .when("newPassword", (newPassword, field) =>
-  //   newPassword
-  //     ? field
-  //         .oneOf([yup.ref("newPassword")], "Passwords do not match")
-  //         .transform((value) => (value === "" ? undefined : value))
-  //     : field
-  // ),
 });
+
+export const updateDailyNormaUsrSchema = yup.object().shape({
+  dailyNorma: yup
+    .number()
+    .typeError("Field must be a number")
+    .positive("Must be a positive number")
+    .min(1, "Minimum 1L")
+    .max(15, "Maximum 15L")
+    .required("Field is required"),
+});
+
+export const calculateWaterNorma = (gender, weight, sportsTime) => {
+  const coefficientWoman = 0.03;
+  const coefficientMan = 0.04;
+  const coefficientSportsTimeWoman = 0.4;
+  const coefficientSportsTimeMan = 0.6;
+
+  if (!weight) return;
+
+  return gender === "woman"
+    ? (
+        weight * coefficientWoman +
+        sportsTime * coefficientSportsTimeWoman
+      ).toFixed(1)
+    : gender === "man"
+    ? (weight * coefficientMan + sportsTime * coefficientSportsTimeMan).toFixed(
+        1
+      )
+    : undefined;
+};

@@ -6,6 +6,7 @@ import {
   refreshUser,
   updateAvatarUser,
   updateInfoUser,
+  updatDailiNormaUser,
 } from "./operations";
 
 const initialState = {
@@ -82,7 +83,15 @@ const authSlice = createSlice({
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })
-      .addCase(updateInfoUser.rejected, handleRejected);
+      .addCase(updateInfoUser.rejected, handleRejected)
+
+      .addCase(updatDailiNormaUser.pending, handlePending)
+      .addCase(updatDailiNormaUser.fulfilled, (state, action) => {
+        state.user = { ...state.user, ...action.payload };
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
+      .addCase(updatDailiNormaUser.rejected, handleRejected);
   },
 });
 
