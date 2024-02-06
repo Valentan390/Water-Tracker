@@ -1,9 +1,9 @@
 .sectionHomePage {
-  padding-top: 40px;
-  padding-bottom: 800px;
+  padding-top: 20px;
+  padding-bottom: 40px;
   background-image: url(../../images/desctop/Group-36.webp),
     url(../../images/desctop/Bottle-for-Sign-in.webp);
   background-repeat: no-repeat, no-repeat;
-  background-size: contain, 1000px;
-  background-position: 50% 50%, -78px -20px;
+  background-size: contain, 700px;
+  background-position: 50% 50%, 88px 64px;
 }

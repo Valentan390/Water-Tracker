@@ -66,7 +66,7 @@ export const calculateWaterNorma = (gender, weight, sportsTime) => {
   const coefficientSportsTimeWoman = 0.4;
   const coefficientSportsTimeMan = 0.6;
 
-  if (!weight) return;
+  if (!weight || !sportsTime) return;
 
   return gender === "woman"
     ? (

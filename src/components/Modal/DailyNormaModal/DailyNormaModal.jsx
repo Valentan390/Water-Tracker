@@ -170,7 +170,9 @@ const DailyNormaModal = () => {
         <label className={s.dailyNormaModalFormaWriteLable}>
           Write down how much water you will drink:
           <input
-            className={s.dailyNormaModalFormaInput}
+            className={`${s.dailyNormaModalFormaInput} ${
+              errors.dailyNorma ? s.dailyNormaModalFormaInputError : ""
+            }`}
             type="number"
             step="0.1"
             // min="1"

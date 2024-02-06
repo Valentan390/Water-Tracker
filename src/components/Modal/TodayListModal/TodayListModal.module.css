@@ -1,0 +1,220 @@
+.todayListModalWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: start;
+  align-items: start;
+  border-radius: 10px;
+  padding: 32px 24px;
+  width: 592px;
+  background: #fff;
+  /* height: 580px; */
+}
+
+.todayListModalContainerEdit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.todayListModalEdit {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23077;
+  color: #2f2f2f;
+}
+
+.todayListModalEditSvg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--dark-blue);
+}
+
+/* ======== Last Water ======= */
+
+.lastWaterContainer {
+  display: flex;
+  gap: 14px;
+  justify-content: start;
+  align-items: center;
+  border-radius: 10px;
+  padding: 8px 24px;
+  width: 254px;
+  /* height: 52px; */
+  background: #ecf2ff;
+}
+
+.lastWaterSvg {
+  width: 36px;
+  height: 36px;
+  fill: var(--dark-blue);
+}
+
+.lastWater {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33333;
+  color: #407bff;
+}
+
+.lastWaterTime {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  color: #2f2f2f;
+}
+
+/*  ========= Amount of water ========== */
+
+.amountWaterTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11111;
+  color: #2f2f2f;
+  margin-bottom: 16px;
+}
+
+.amountWater {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #2f2f2f;
+  margin-bottom: 12px;
+}
+
+.amountWaterCantainer {
+  display: flex;
+  gap: 7px;
+  justify-content: start;
+  align-items: center;
+}
+
+.amountWaterButton {
+  border: 1px solid #9ebbff;
+  border-radius: 30px;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 2px 4px 0 rgba(64, 123, 255, 0.2);
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amountWaterSvg {
+  width: 19px;
+  height: 33px;
+  fill: var(--dark-blue);
+}
+
+.water {
+  border-radius: 40px;
+  padding: 6px 10px;
+  width: 92px;
+  height: 36px;
+  background: #d7e3ff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #407bff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amountWaterSvgPlus {
+  width: 24px;
+  height: 24px;
+  stroke: var(--dark-blue);
+}
+
+.timePickerCanteiner {
+  width: 100%;
+}
+
+.recordingTime {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #2f2f2f;
+  margin-bottom: 12px;
+}
+
+/* =======  value of the water used ======= */
+
+.valueWaterForm {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+.valueWaterLabel {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11111;
+  color: #2f2f2f;
+  width: 100%;
+}
+
+.valueWaterImput {
+  border: 1px solid #d7e3ff;
+  border-radius: 6px;
+  padding: 12px 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #407bff;
+  width: 100%;
+}
+
+.valueWaterSubmit {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.valueWaterSubmitInfo {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #407bff;
+}
+
+.valueWaterSubmitButton {
+  border-radius: 10px;
+  padding: 10px 30px;
+  width: 160px;
+  height: 44px;
+  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+  background: #407bff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #fff;
+}

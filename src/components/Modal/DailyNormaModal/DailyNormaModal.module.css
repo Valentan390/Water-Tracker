@@ -46,7 +46,7 @@
 }
 
 .dailyNormaModalGender {
-  color: var(--Primery-Color-Black, #2f2f2f);
+  color: var(--black);
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -55,7 +55,7 @@
 }
 
 .dailyNormaModalGenderFormula {
-  color: var(--Primery-Color-Blue, #407bff);
+  color: var(--dark-blue);
   font-family: Roboto;
   font-size: 18px;
   font-style: normal;
@@ -64,7 +64,7 @@
 }
 
 .dailyNormaModalGenderDescription {
-  color: #8f8f8f;
+  color: var(--grey);
   font-family: Roboto;
   font-size: 12px;
   font-style: normal;
@@ -72,7 +72,7 @@
   line-height: 16px;
   padding: 10px;
   border-radius: 6px;
-  border: 1px solid #d7e3ff;
+  border: 1px solid var(--light-blue-2);
 }
 
 /* ======  Daily Norma Forma  ========= */
@@ -95,7 +95,7 @@
 }
 
 .dailyNormaModalFormaGenderTitle {
-  color: var(--Primery-Color-Black, #2f2f2f);
+  color: var(--black);
   font-family: Roboto;
   font-size: 18px;
   font-style: normal;
@@ -116,7 +116,7 @@
   gap: 8px;
   justify-content: start;
   align-items: center;
-  color: var(--Primery-Color-Black, #2f2f2f);
+  color: var(--black);
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -130,7 +130,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  color: var(--Primery-Color-Black, #2f2f2f);
+  color: var(--black);
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -148,7 +148,7 @@
   gap: 10px;
   border-radius: 6px;
   border: 1px solid #d7e3ff;
-  color: var(--Primery-Color-Blue, #407bff);
+  color: var(--dark-blue);
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -157,11 +157,36 @@
   width: 100%;
 }
 
+.dailyNormaModalFormaInput::placeholder {
+  color: var(--light-blue-3);
+}
+
+.dailyNormaModalFormaInputError {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.dailyNormaModalFormaInputError::placeholder {
+  color: var(--red);
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  color: var(--red, #ef5050);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
+}
+
 .dailyNormaModalFormaRequired {
   display: flex;
   gap: 8px;
   align-items: center;
-  color: var(--Primery-Color-Black, #2f2f2f);
+  color: var(--black);
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
@@ -170,7 +195,7 @@
 }
 
 .dailyNormaModalFormaSpan {
-  color: var(--Primery-Color-Blue, #407bff);
+  color: var(--dark-blue);
   font-family: Roboto;
   font-size: 18px;
   font-style: normal;
@@ -184,7 +209,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: start;
-  color: var(--Primery-Color-Black, #2f2f2f);
+  color: var(--black);
   font-family: Roboto;
   font-size: 18px;
   font-style: normal;
@@ -202,7 +227,7 @@
   align-items: center;
   gap: 10px;
   border-radius: 10px;
-  background: var(--Primery-Color-Blue, #407bff);
+  background: var(--dark-blue);
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   color: var(--Primery-Color-White, #fff);
   text-align: center;
