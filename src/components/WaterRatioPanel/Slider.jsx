@@ -95,12 +95,12 @@ function valuetext(value) {
   return `${value}%`;
 }
 
-export default function DiscreteSliderLabel() {
+export default function DiscreteSliderLabel({ percentDailyNorma }) {
   return (
     <Box sx={{ width: "391px", marginLeft: "8px" }}>
       <StyledSlider
         aria-label="Volume"
-        value={50}
+        value={percentDailyNorma}
         valueLabelFormat={valuetext}
         marks={marks}
         valueLabelDisplay="on"

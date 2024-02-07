@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// GET @ /tasks
-export const fetchTasks = createAsyncThunk(
-  "tasks/fetchAll",
+// GET @ /userwaterday
+export const userWaterDay = createAsyncThunk(
+  "waters/userwaterday",
   async (_, thunkAPI) => {
     try {
-      const res = await axios.get("/tasks");
+      const res = await axios.get("/waters/userwaterday");
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -14,12 +14,12 @@ export const fetchTasks = createAsyncThunk(
   }
 );
 
-// POST @ /tasks
-export const addTask = createAsyncThunk(
-  "tasks/addTask",
-  async (text, thunkAPI) => {
+// POST @ /waters
+export const addWaterUser = createAsyncThunk(
+  "waters/addWater",
+  async (water, thunkAPI) => {
     try {
-      const response = await axios.post("/tasks", { text });
+      const response = await axios.post("/waters", water);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
@@ -27,12 +27,12 @@ export const addTask = createAsyncThunk(
   }
 );
 
-// DELETE @ /tasks/:id
-export const deleteTask = createAsyncThunk(
-  "tasks/deleteTask",
-  async (taskId, thunkAPI) => {
+// DELETE @ /waters/:id
+export const deleteWater = createAsyncThunk(
+  "waters/deleteWaters",
+  async (waterId, thunkAPI) => {
     try {
-      const response = await axios.delete(`/tasks/${taskId}`);
+      const response = await axios.delete(`/waters/${waterId}`);
       return response.data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

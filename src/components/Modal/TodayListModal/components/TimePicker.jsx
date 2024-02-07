@@ -8,6 +8,10 @@ const TimePicker = ({ setData, data }) => {
       <StyledTimePicker
         value={data}
         onChange={(newValue) => setData(newValue)}
+        views={["hours", "minutes"]}
+        format="hh:mm"
+        timeSteps={{ minutes: 1 }}
+        ampm={false}
       />
     </LocalizationProvider>
   );

@@ -1,0 +1,20 @@
+.closeModalWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.closeModalTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23077;
+  color: var(--black);
+}
+
+.closeModalSvg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--dark-blue);
+}

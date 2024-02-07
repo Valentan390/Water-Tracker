@@ -10,7 +10,7 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { tasksReducer } from "./waterUser/slice";
+import { waterReducer } from "./waterUser/slice";
 import { authReducer } from "./authUser/slice";
 import { modalReducer } from "./modal/modalSlice";
 
@@ -25,7 +25,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
     modalInfo: modalReducer,
-    tasks: tasksReducer,
+    waters: waterReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

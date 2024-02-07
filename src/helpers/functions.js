@@ -1,12 +1,12 @@
 export const formatDate = (date) => {
   const inputDate = new Date(date.$d);
-  const formattedDate = `${inputDate.getUTCFullYear()}-${padZero(
-    inputDate.getUTCMonth() + 1
-  )}-${padZero(inputDate.getUTCDate())}T${padZero(
-    inputDate.getUTCHours()
-  )}:${padZero(inputDate.getUTCMinutes())}:${padZero(
-    inputDate.getUTCSeconds()
-  )}.${padMilliseconds(inputDate.getUTCMilliseconds())}Z`;
+  const formattedDate = `${inputDate.getFullYear()}-${padZero(
+    inputDate.getMonth() + 1
+  )}-${padZero(inputDate.getDate())}T${padZero(inputDate.getHours())}:${padZero(
+    inputDate.getMinutes()
+  )}:${padZero(inputDate.getSeconds())}.${padMilliseconds(
+    inputDate.getMilliseconds()
+  )}Z`;
 
   function padZero(value) {
     return String(value).padStart(2, "0");

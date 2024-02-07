@@ -1,0 +1,59 @@
+.deleteEntryWrapper {
+  border-radius: 10px;
+  padding: 32px 24px;
+  width: 592px;
+  background: #fff;
+}
+
+.deleteEntry {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11111;
+  color: #2f2f2f;
+  margin: 24px 0;
+}
+
+.deleteEntryButtonContainer {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+.deleteEntryButtonCancel {
+  border-radius: 10px;
+  padding: 10px 30px;
+  width: 160px;
+  background: #d7e3ff;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #407bff;
+}
+
+.deleteEntryButtonCancel:hover,
+.deleteEntryButtonCancel:focus {
+}
+
+.deleteEntryButtonDelete {
+  border-radius: 10px;
+  padding: 10px 30px;
+  width: 160px;
+  height: 44px;
+  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+  background: #ef5050;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33333;
+  text-align: center;
+  color: #fff;
+}
+
+.deleteEntryButtonDelete:hover,
+.deleteEntryButtonDelete:focus {
+}

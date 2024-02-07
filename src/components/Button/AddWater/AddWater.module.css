@@ -1,0 +1,29 @@
+.addWaterButton {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.33333;
+  color: #407bff;
+  transition: var(--transition);
+}
+
+.addWaterButton:hover,
+.addWaterButton:focus {
+  color: var(--orange);
+}
+
+/* .addWaterSvg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--dark-blue);
+  transition: var(--transition);
+}
+
+.addWaterSvg:hover,
+.addWaterSvg:focus {
+  stroke: var(--orange);
+} */

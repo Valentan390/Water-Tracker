@@ -1,0 +1,66 @@
+.todayWaterListTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23077;
+  color: #2f2f2f;
+}
+
+.todayWaterList {
+  margin: 12px 0;
+  max-height: 190px;
+  overflow-y: auto;
+}
+
+.todayWaterList::-webkit-scrollbar {
+  width: 3px;
+}
+
+.todayWaterList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.todayWaterList::-webkit-scrollbar-thumb {
+  background: var(--light-blue-3);
+}
+
+.todayWaterList::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-blue);
+}
+
+.todayWateritem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #d7e3ff;
+}
+
+.todayWaterVolumeWrapper {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.todayWaterVolumeSvg {
+  width: 36px;
+  height: 36px;
+  stroke: var(--dark-blue);
+}
+
+.todayWaterVolum {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33333;
+  color: #407bff;
+}
+
+.todayWaterVolumTime {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  color: #2f2f2f;
+}

@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import dayjs from "dayjs";
 import { formatDate } from "../../../helpers/functions";
+import { addWaterUser } from "../../../redux/waterUser/operations";
 
 const TodayListModal = () => {
   const lastAddition = true;
@@ -45,11 +46,12 @@ const TodayListModal = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    dispatch(addWaterUser(data));
   };
 
   useEffect(() => {
-    setValue("dailyNorma", amountWater);
-    setValue("data", formatDate(data));
+    setValue("waterVolume", amountWater);
+    setValue("date", formatDate(data));
   }, [amountWater, setValue, data]);
 
   return (
@@ -116,7 +118,7 @@ const TodayListModal = () => {
             type="number"
             // value={amountWater}
             name="waterVolume"
-            {...register("dailyNorma")}
+            {...register("waterVolume")}
           />
         </label>
 

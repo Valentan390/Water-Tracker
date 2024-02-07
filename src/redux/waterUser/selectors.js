@@ -1,5 +1,7 @@
-export const selectLoading = (state) => state.tasks.loading;
+export const selectLoading = (state) => state.waters.loading;
 
-export const selectFilter = (state) => state.tasks.filter;
+export const selectTodayWater = (state) => state.waters.todayWater;
 
-export const selectAllTasks = (state) => state.tasks.items;
+export const selectTodayWaterID = (state) => state.waters.idForEditDeleteWater;
+
+export const selectMonthWater = (state) => state.waters.monthWater;
