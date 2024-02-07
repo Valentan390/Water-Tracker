@@ -7,29 +7,49 @@ import {
   setModalStatus,
 } from "../../../redux/modal/modalSlice";
 import { useDispatch } from "react-redux";
-// import { yupResolver } from "@hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import dayjs from "dayjs";
 import { formatDate } from "../../../helpers/functions";
-import { addWaterUser } from "../../../redux/waterUser/operations";
+import { addWaterUser, editWater } from "../../../redux/waterUser/operations";
+import { useWaters } from "../../../hooks/userWaters";
+import moment from "moment";
+import CloseModal from "../../Button/CloseModal/CloseModal";
+import { editAndAddWaterSchema } from "../../../helpers/validation.js";
 
-const TodayListModal = () => {
-  const lastAddition = true;
-  const lastWater = 250;
-  const lastWaterTime = "7:00 AM";
+const TodayListModal = ({ action }) => {
+  const { todayWater, idForEditDeleteWater } = useWaters();
+
+  const lastWater =
+    action === "edit"
+      ? todayWater.userWaterDay?.find(
+          (item) => item._id === idForEditDeleteWater
+        ).waterVolume
+      : todayWater.userWaterDay?.[0]?.waterVolume;
+
+  const lastWaterTime =
+    action === "edit"
+      ? todayWater.userWaterDay?.find(
+          (item) => item._id === idForEditDeleteWater
+        )?.date
+      : todayWater.userWaterDay?.[0]?.date;
   const [amountWater, setamoutWater] = useState(lastWater);
-  const [data, setData] = useState(dayjs());
+  const [data, setData] = useState(
+    action === "edit" ? dayjs(lastWaterTime).subtract(2, "hour") : dayjs()
+  );
+
   const dispatch = useDispatch();
 
   const {
     register,
     handleSubmit,
     // reset,
-    // formState: { errors },
+    formState: { errors },
+    watch,
     setValue,
   } = useForm({
     mode: "onSubmit",
-    // resolver: yupResolver(updateDailyNormaUsrSchema),
+    resolver: yupResolver(editAndAddWaterSchema),
   });
 
   const handleCloseModal = () => {
@@ -45,8 +65,13 @@ const TodayListModal = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    dispatch(addWaterUser(data));
+    if (action === "edit" && idForEditDeleteWater) {
+      dispatch(editWater({ id: idForEditDeleteWater, ...data }));
+      handleCloseModal();
+    } else {
+      dispatch(addWaterUser(data));
+      handleCloseModal();
+    }
   };
 
   useEffect(() => {
@@ -54,33 +79,32 @@ const TodayListModal = () => {
     setValue("date", formatDate(data));
   }, [amountWater, setValue, data]);
 
+  const savewaterVolume = watch("waterVolume", "");
   return (
     <div className={s.todayListModalWrapper}>
-      <div className={s.todayListModalContainerEdit}>
-        <h4 className={s.todayListModalEdit}>
-          Edit the entered amount of water
-        </h4>
-        <button type="button" onClick={handleCloseModal}>
-          <svg className={s.todayListModalEditSvg}>
-            <use href={`${sprite}#icon-outline`} />
-          </svg>
-        </button>
-      </div>
-
-      {lastAddition ? (
+      <CloseModal
+        title={
+          action === "edit" ? "Edit the entered amount of water" : "Add Water"
+        }
+      />
+      {todayWater.userWaterDay && todayWater.userWaterDay.length > 0 ? (
         <div className={s.lastWaterContainer}>
           <svg className={s.lastWaterSvg}>
             <use href={`${sprite}#icon-Frame-1`} />
           </svg>
           <p className={s.lastWater}>{lastWater}ml</p>
-          <p className={s.lastWaterTime}>{lastWaterTime}</p>
+          <p className={s.lastWaterTime}>
+            {moment(lastWaterTime).utc().format("HH:mm")}
+          </p>
         </div>
       ) : (
         <p>No notes yet</p>
       )}
 
       <div>
-        <p className={s.amountWaterTitle}>Correct entered data:</p>
+        <p className={s.amountWaterTitle}>
+          {action === "edit" ? "Correct entered data:" : "Choose a Value"}
+        </p>
         <p className={s.amountWater}>Amount of water:</p>
         <div className={s.amountWaterCantainer}>
           <button
@@ -114,16 +138,19 @@ const TodayListModal = () => {
         <label className={s.valueWaterLabel}>
           Enter the value of the water used:
           <input
-            className={s.valueWaterImput}
+            className={`${s.valueWaterImput} ${
+              errors.waterVolume ? s.valueWaterImputError : ""
+            }`}
             type="number"
-            // value={amountWater}
+            placeholder="0"
             name="waterVolume"
             {...register("waterVolume")}
           />
+          <p className={s.errorMessage}>{errors.waterVolume?.message}</p>
         </label>
 
         <div className={s.valueWaterSubmit}>
-          <p className={s.valueWaterSubmitInfo}>{amountWater}ml</p>
+          <p className={s.valueWaterSubmitInfo}>{savewaterVolume}ml</p>
           <button className={s.valueWaterSubmitButton} type="submit">
             Save
           </button>

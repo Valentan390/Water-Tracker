@@ -1,6 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { logOutUser } from "../authUser/operations.js";
-import { userWaterDay, addWaterUser, deleteWater } from "./operations";
+import {
+  userWaterDay,
+  addWaterUser,
+  deleteWater,
+  editWater,
+} from "./operations";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -44,7 +49,6 @@ const watersSlice = createSlice({
         state.todayWater = action.payload.dayWaterUser;
         // state.todayWater.push(action.payload.dayWaterUser);
       })
-
       .addCase(addWaterUser.rejected, handleRejected)
 
       .addCase(deleteWater.pending, handlePending)
@@ -58,6 +62,14 @@ const watersSlice = createSlice({
         state.todayWater = action.payload.dayWaterUser;
       })
       .addCase(deleteWater.rejected, handleRejected)
+
+      .addCase(editWater.pending, handlePending)
+      .addCase(editWater.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.todayWater = action.payload.dayWaterUser;
+      })
+      .addCase(editWater.rejected, handleRejected)
 
       .addCase(logOutUser.fulfilled, (state) => {
         state.items = [];

@@ -19,9 +19,11 @@ const ModalContent = () => {
     case "DailyNormaModal":
       return <DailyNormaModal />;
     case "TodayListModal":
-      return <TodayListModal />;
+      return <TodayListModal action="add" />;
     case "DeleteEntry":
       return <DeleteEntry />;
+    case "EditWaterEntry":
+      return <TodayListModal action="edit" />;
     default:
       return null;
   }

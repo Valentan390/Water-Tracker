@@ -9,7 +9,7 @@ const TimePicker = ({ setData, data }) => {
         value={data}
         onChange={(newValue) => setData(newValue)}
         views={["hours", "minutes"]}
-        format="hh:mm"
+        format="HH:mm"
         timeSteps={{ minutes: 1 }}
         ampm={false}
       />

@@ -11,7 +11,6 @@ export const useWaters = () => {
   const todayWater = useSelector(selectTodayWater);
   const idForEditDeleteWater = useSelector(selectTodayWaterID);
   const monthWater = useSelector(selectMonthWater);
-  console.log(idForEditDeleteWater);
 
   return {
     loading,

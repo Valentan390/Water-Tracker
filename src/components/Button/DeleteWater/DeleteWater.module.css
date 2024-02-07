@@ -3,3 +3,21 @@
   height: 18px;
   stroke: var(--red);
 }
+
+.deleteWaterButton {
+  position: relative;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.deleteWaterButton:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--red);
+}

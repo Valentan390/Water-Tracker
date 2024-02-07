@@ -173,6 +173,7 @@
   line-height: 1.11111;
   color: #2f2f2f;
   width: 100%;
+  position: relative;
 }
 
 .valueWaterImput {
@@ -185,6 +186,32 @@
   line-height: 1.25;
   color: #407bff;
   width: 100%;
+  position: relative;
+}
+
+.valueWaterImput::placeholder {
+  color: var(--light-blue-3);
+}
+
+.valueWaterImputError {
+  border: 1px solid var(--red);
+  color: var(--red);
+}
+
+.valueWaterImputError::placeholder {
+  color: var(--red);
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  color: var(--red, #ef5050);
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px; /* 128.571% */
 }
 
 .valueWaterSubmit {

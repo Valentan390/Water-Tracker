@@ -59,6 +59,15 @@ export const updateDailyNormaUsrSchema = yup.object().shape({
     .max(15, "Maximum 15L")
     .required("Field is required"),
 });
+export const editAndAddWaterSchema = yup.object().shape({
+  waterVolume: yup
+    .number()
+    .typeError("Field must be a number")
+    .positive("Must be a positive number")
+    .min(1, "Minimum 1ml")
+    .max(5000, "Maximum 5000ml")
+    .required("Field is required"),
+});
 
 export const calculateWaterNorma = (gender, weight, sportsTime) => {
   const coefficientWoman = 0.03;

@@ -1,4 +1,4 @@
-export const selectLoading = (state) => state.waters.loading;
+export const selectLoading = (state) => state.waters.isLoading;
 
 export const selectTodayWater = (state) => state.waters.todayWater;
 

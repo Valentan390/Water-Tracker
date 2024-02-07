@@ -39,3 +39,16 @@ export const deleteWater = createAsyncThunk(
     }
   }
 );
+
+// DELETE @ /waters/:id
+export const editWater = createAsyncThunk(
+  "waters/editWater",
+  async ({ id, ...data }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/waters/${id}`, data);
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

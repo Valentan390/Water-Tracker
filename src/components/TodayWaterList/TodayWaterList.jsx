@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { userWaterDay } from "../../redux/waterUser/operations";
 import { setModalContent, setModalStatus } from "../../redux/modal/modalSlice";
 import { useModal } from "../../hooks/userModal";
+import { FragmentLoader } from "../Loader/Loader";
 
 const TodayWaterList = () => {
   const { todayWater, loading } = useWaters();
@@ -26,37 +27,37 @@ const TodayWaterList = () => {
     dispatch(setModalContent("TodayListModal"));
   };
 
-  //   const handleDeleteWater = () => {
-  //     dispatch(setModalStatus(!modalStatus));
-  //     dispatch(setModalContent("DeleteEntry"));
-  //     //   dispatch(setIdForEditDelete(id));
-
-  //     console.log("gggggggggggggggggggggggggg");
-  //   };
-
-  return loading ? (
-    <b>Загружается </b>
-  ) : (
+  return (
     <div>
       <h4 className={s.todayWaterListTitle}>Today</h4>
       <ul className={s.todayWaterList}>
-        {todayWater.userWaterDay?.map(({ _id, date, waterVolume }) => (
-          <li className={s.todayWateritem} key={_id}>
-            <div className={s.todayWaterVolumeWrapper}>
-              <svg className={s.todayWaterVolumeSvg}>
-                <use href={`${sprite}#icon-Frame-1`} />
-              </svg>
-              <p className={s.todayWaterVolum}>{waterVolume} ml</p>
-              <p className={s.todayWaterVolumTime}>
-                {moment(date).format("HH:mm")}
-              </p>
-            </div>
-            <div>
-              <EditWater />
-              <DeleteWater id={_id} />
-            </div>
+        {loading ? (
+          <li className={s.loaderContainer}>
+            <FragmentLoader />
           </li>
-        ))}
+        ) : todayWater.userWaterDay?.length > 0 ? (
+          todayWater.userWaterDay.map(({ _id, date, waterVolume }) => (
+            <li className={s.todayWateritem} key={_id}>
+              <div className={s.todayWaterVolumeWrapper}>
+                <svg className={s.todayWaterVolumeSvg}>
+                  <use href={`${sprite}#icon-Frame-1`} />
+                </svg>
+                <p className={s.todayWaterVolum}>{waterVolume} ml</p>
+                <p className={s.todayWaterVolumTime}>
+                  {moment(date).utcOffset(0).format("HH:mm")}
+                </p>
+              </div>
+              <div className={s.todayWaterCantainerEditDelete}>
+                <EditWater id={_id} />
+                <DeleteWater id={_id} />
+              </div>
+            </li>
+          ))
+        ) : (
+          <li className={s.noRecords}>
+            There are no entries for notes, please add a note...
+          </li>
+        )}
       </ul>
       <AddWater onClick={handleOpenUserModal} />
     </div>

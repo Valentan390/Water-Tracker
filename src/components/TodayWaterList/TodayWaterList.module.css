@@ -32,7 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 12px 20px 12px 0;
   border-bottom: 1px solid #d7e3ff;
 }
 
@@ -63,4 +63,28 @@
   font-size: 12px;
   line-height: 2;
   color: #2f2f2f;
+}
+
+.todayWaterCantainerEditDelete {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+}
+
+.loaderContainer {
+  height: 190px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.noRecords {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.23077;
+  color: var(--dark-blue);
+  height: 190px;
 }

@@ -3,6 +3,7 @@ import s from "./HomePage.module.css";
 import DailyNorma from "../../components/DailyNorma/DailyNorma";
 import WaterRatioPanel from "../../components/WaterRatioPanel/WaterRatioPanel";
 import TodayWaterList from "../../components/TodayWaterList/TodayWaterList";
+import MonthStatsTable from "../../components/MonthStatsTable/MonthStatsTable";
 
 const HomePage = () => {
   return (
@@ -15,6 +16,7 @@ const HomePage = () => {
           </div>
           <div className={s.sectionHomePageToday}>
             <TodayWaterList />
+            <MonthStatsTable />
           </div>
         </div>
       </section>

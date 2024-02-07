@@ -16,11 +16,14 @@ const DeleteWater = ({ id }) => {
     dispatch(setModalStatus(!modalStatus));
     dispatch(setModalContent("DeleteEntry"));
     dispatch(setIdForEditDeleteWater(id));
-    console.log(id);
   };
   return (
     <>
-      <button type="button" onClick={handleDeleteWater}>
+      <button
+        className={s.deleteWaterButton}
+        type="button"
+        onClick={handleDeleteWater}
+      >
         <svg className={s.deleteWaterSvg}>
           <use href={`${sprite}#icon-trash`} />
         </svg>
