@@ -2,34 +2,19 @@ import s from "./MonthStatsTable.module.css";
 
 import { useEffect, useState } from "react";
 import moment from "moment";
-import sprite from "../../images/svg/sprite.svg";
 import { useDispatch } from "react-redux";
 import { waterMonthUser } from "../../redux/waterUser/operations";
 import { useWaters } from "../../hooks/userWaters";
+import DaysGeneralStats from "./DaysGeneralStats/DaysGeneralStats";
+import MonthStatsPaginator from "./MonthStatsPaginator/MonthStatsPaginator";
+import useGenerateDataArray from "../../hooks/useGenerateDataArray";
+import useModalHandlers from "../../hooks/useModalHandlers";
+import { getCustomPositionStyle } from "../../helpers/functions.js";
 
 const MonthStatsTable = () => {
   const [selectedMonth, setSelectedMonth] = useState(moment());
   const dispatch = useDispatch();
   const { monthWater } = useWaters();
-  console.log(monthWater);
-
-  const [selectedDay, setSelectedDay] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-
-  //   const monthWaterUser = [
-  //     {
-  //       date: "2024-02-06T00:00:00.000Z",
-  //       dailyNorm: "4500",
-  //       percentDailyNorm: 51,
-  //       consumptionCount: 8,
-  //     },
-  //     {
-  //       date: "2024-02-07T00:00:00.000Z",
-  //       dailyNorm: "4500",
-  //       percentDailyNorm: 79,
-  //       consumptionCount: 11,
-  //     },
-  //   ];
 
   useEffect(() => {
     const currentYear = moment().year();
@@ -50,87 +35,21 @@ const MonthStatsTable = () => {
     setSelectedMonth(selectedMonth.clone().add(1, "month"));
   };
 
-  const handleDayClick = (day) => {
-    if (selectedDay === day) {
-      setShowModal(!showModal);
-    } else {
-      setSelectedDay(day);
-      setShowModal(true);
-    }
-  };
+  const { selectedDay, showModal, handleDayClick, handleModalClose } =
+    useModalHandlers(selectedMonth);
 
-  const handleModalClose = () => {
-    setShowModal(false);
-    setSelectedDay(null);
-  };
-
-  const modalPositionStyle = {
-    position: "absolute",
-    width: "maxContent",
-
-    // top: "50%",
-    // left: "50%",
-    // transform: "translate(-50%, -50%)",
-  };
-
-  const generateDataArray = (selectedMonth) => {
-    const daysInMonth = selectedMonth.daysInMonth();
-    const dataArray = [];
-
-    for (let i = 1; i <= daysInMonth; i++) {
-      const date = selectedMonth.clone().date(i).toISOString();
-      const dataObject = {
-        date: date,
-        dailyNorma: 0,
-        percentDailyNorm: 0,
-        consumptionCount: 0,
-      };
-
-      const matchedObject = monthWater?.find((item) => {
-        return moment(item.date).isSame(date, "day");
-      });
-
-      if (matchedObject) {
-        dataObject.dailyNorma = matchedObject.dailyNorm;
-        dataObject.percentDailyNorm = matchedObject.percentDailyNorm;
-        dataObject.consumptionCount = matchedObject.consumptionCount;
-      }
-
-      dataArray.push(dataObject);
-    }
-
-    console.log(dataArray);
-
-    return dataArray;
-  };
+  const dataArray = useGenerateDataArray(selectedMonth, monthWater);
 
   return (
     <div className={s.monthStatsPaginatorWrapper}>
-      <div className={s.monthStatsPaginatorCantainer}>
-        <p className={s.monthStatsPaginatorTitle}>Month</p>
-        <div className={s.monthStatsPaginatorCantainerButton}>
-          <button type="button" onClick={handlePrevMonth}>
-            <svg className={s.monthStatsPaginatorButtonSvg}>
-              <use href={`${sprite}#icon-solid-1`} />
-            </svg>
-          </button>
-          <span className={s.monthStatsPaginatorSpan}>
-            {selectedMonth.format("MMMM YYYY")}
-          </span>
-          <button
-            type="button"
-            onClick={handleNextMonth}
-            disabled={selectedMonth.isSame(moment(), "month")}
-          >
-            <svg className={s.monthStatsPaginatorButtonSvg}>
-              <use href={`${sprite}#icon-solid-2`} />
-            </svg>
-          </button>
-        </div>
-      </div>
+      <MonthStatsPaginator
+        handlePrevMonth={handlePrevMonth}
+        handleNextMonth={handleNextMonth}
+        selectedMonth={selectedMonth}
+      />
 
       <ul className={s.monthStatsList}>
-        {generateDataArray(selectedMonth).map(
+        {dataArray.map(
           ({ date, dailyNorma, percentDailyNorm, consumptionCount }) => (
             <li className={s.monthStatsItem} key={date}>
               <button
@@ -142,17 +61,15 @@ const MonthStatsTable = () => {
               </button>
               <p className={s.monthStatsItemPercent}>{percentDailyNorm}%</p>
 
-              <div>
-                {selectedDay === date && showModal && (
-                  <div style={modalPositionStyle}>
-                    <p>Selected Date: {moment(date).format("Do MMMM")}</p>
-                    <p>Daily Norm: {dailyNorma} L</p>
-                    <p>Completion of daily norm: {percentDailyNorm}%</p>
-                    <p>Number of water portions: {consumptionCount}</p>
-                    <button onClick={handleModalClose}>Close</button>
-                  </div>
-                )}
-              </div>
+              <DaysGeneralStats
+                style={getCustomPositionStyle(date)}
+                selectedDay={selectedDay === date ? moment(date) : null}
+                showModal={showModal}
+                handleClose={handleModalClose}
+                dailyNorma={dailyNorma}
+                percentDailyNorm={percentDailyNorm}
+                consumptionCount={consumptionCount}
+              />
             </li>
           )
         )}

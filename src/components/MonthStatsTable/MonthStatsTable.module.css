@@ -7,43 +7,6 @@
   width: 100%;
 }
 
-.monthStatsPaginatorCantainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.monthStatsPaginatorTitle {
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  font-size: 26px;
-  line-height: 1.23077;
-  color: #2f2f2f;
-}
-
-.monthStatsPaginatorCantainerButton {
-  display: flex;
-  grid-area: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-.monthStatsPaginatorButtonSvg {
-  width: 16px;
-  height: 16px;
-  fill: var(--dark-blue);
-}
-
-.monthStatsPaginatorSpan {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.25;
-  text-align: center;
-  color: #407bff;
-}
-
 .monthStatsList {
   display: flex;
   row-gap: 20px;
