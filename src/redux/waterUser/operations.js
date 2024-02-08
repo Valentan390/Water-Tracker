@@ -52,3 +52,17 @@ export const editWater = createAsyncThunk(
     }
   }
 );
+// get @ /waters/userwatermonth/:year/:month
+export const waterMonthUser = createAsyncThunk(
+  "waters/waterMonthUser",
+  async ({ year, month }, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `/waters/userwatermonth/${year}/${month}`
+      );
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);

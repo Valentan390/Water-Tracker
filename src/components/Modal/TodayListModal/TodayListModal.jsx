@@ -33,7 +33,13 @@ const TodayListModal = ({ action }) => {
           (item) => item._id === idForEditDeleteWater
         )?.date
       : todayWater.userWaterDay?.[0]?.date;
-  const [amountWater, setamoutWater] = useState(lastWater);
+
+  const [amountWater, setamoutWater] = useState(
+    todayWater.userWaterDay && todayWater.userWaterDay.length > 0
+      ? lastWater
+      : 0
+  );
+
   const [data, setData] = useState(
     action === "edit" ? dayjs(lastWaterTime).subtract(2, "hour") : dayjs()
   );
@@ -98,7 +104,7 @@ const TodayListModal = ({ action }) => {
           </p>
         </div>
       ) : (
-        <p>No notes yet</p>
+        <p className={s.amountWaterNotes}>No notes yet</p>
       )}
 
       <div>

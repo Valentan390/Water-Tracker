@@ -28,7 +28,7 @@ const TodayWaterList = () => {
   };
 
   return (
-    <div>
+    <div className={s.todayWaterWrapper}>
       <h4 className={s.todayWaterListTitle}>Today</h4>
       <ul className={s.todayWaterList}>
         {loading ? (

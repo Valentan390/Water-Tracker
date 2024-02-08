@@ -1,3 +1,7 @@
+.todayWaterWrapper {
+  width: 100%;
+}
+
 .todayWaterListTitle {
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -8,8 +12,9 @@
 
 .todayWaterList {
   margin: 12px 0;
-  max-height: 190px;
+  /* max-height: 190px; */
   overflow-y: auto;
+  height: 190px;
 }
 
 .todayWaterList::-webkit-scrollbar {
@@ -87,4 +92,5 @@
   line-height: 1.23077;
   color: var(--dark-blue);
   height: 190px;
+  padding-top: 50px;
 }

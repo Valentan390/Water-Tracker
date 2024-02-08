@@ -5,6 +5,7 @@ import {
   addWaterUser,
   deleteWater,
   editWater,
+  waterMonthUser,
 } from "./operations";
 
 const handlePending = (state) => {
@@ -70,6 +71,14 @@ const watersSlice = createSlice({
         state.todayWater = action.payload.dayWaterUser;
       })
       .addCase(editWater.rejected, handleRejected)
+
+      .addCase(waterMonthUser.pending, handlePending)
+      .addCase(waterMonthUser.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.monthWater = action.payload;
+      })
+      .addCase(waterMonthUser.rejected, handleRejected)
 
       .addCase(logOutUser.fulfilled, (state) => {
         state.items = [];
