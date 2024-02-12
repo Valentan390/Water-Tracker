@@ -13,8 +13,6 @@ const DeleteEntry = () => {
   const dispatch = useDispatch();
   const { idForEditDeleteWater } = useWaters();
 
-  console.log(idForEditDeleteWater);
-
   const handleCloseModal = () => {
     dispatch(setModalStatus(false));
     dispatch(setModalContent(null));
