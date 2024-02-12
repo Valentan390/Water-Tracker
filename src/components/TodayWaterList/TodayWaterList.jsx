@@ -32,9 +32,9 @@ const TodayWaterList = () => {
       <h4 className={s.todayWaterListTitle}>Today</h4>
       <ul className={s.todayWaterList}>
         {loading ? (
-          <li className={s.loaderContainer}>
+          
             <FragmentLoader />
-          </li>
+         
         ) : todayWater.userWaterDay?.length > 0 ? (
           todayWater.userWaterDay.map(({ _id, date, waterVolume }) => (
             <li className={s.todayWateritem} key={_id}>

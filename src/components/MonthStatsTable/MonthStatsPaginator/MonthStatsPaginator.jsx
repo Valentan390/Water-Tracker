@@ -7,6 +7,7 @@ const MonthStatsPaginator = ({
   handleNextMonth,
   selectedMonth,
 }) => {
+  const isCurrentMonth = selectedMonth.isSame(moment(), "month");
   return (
     <div>
       <div className={s.monthStatsPaginatorCantainer}>
@@ -20,12 +21,13 @@ const MonthStatsPaginator = ({
           <span className={s.monthStatsPaginatorSpan}>
             {selectedMonth.format("MMMM YYYY")}
           </span>
-          <button
+          <button className={isCurrentMonth ? s.buttonCurrentMonth : '' }
             type="button"
             onClick={handleNextMonth}
-            disabled={selectedMonth.isSame(moment(), "month")}
+            disabled={isCurrentMonth}
+            
           >
-            <svg className={s.monthStatsPaginatorButtonSvg}>
+            <svg className={isCurrentMonth ? s.hiddenSvg : s.monthStatsPaginatorButtonSvg}>
               <use href={`${sprite}#icon-solid-2`} />
             </svg>
           </button>

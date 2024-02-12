@@ -7,7 +7,7 @@
   font-weight: 500;
   font-size: 26px;
   line-height: 1.23077;
-  color: #2f2f2f;
+  color: var(--black);
 }
 
 .todayWaterList {
@@ -38,7 +38,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 12px 20px 12px 0;
-  border-bottom: 1px solid #d7e3ff;
+  border-bottom: 1px solid var(--light-blue-2);
 }
 
 .todayWaterVolumeWrapper {
@@ -59,7 +59,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.33333;
-  color: #407bff;
+  color: var(--dark-blue);
 }
 
 .todayWaterVolumTime {
@@ -67,7 +67,7 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 2;
-  color: #2f2f2f;
+  color: var(--black);
 }
 
 .todayWaterCantainerEditDelete {

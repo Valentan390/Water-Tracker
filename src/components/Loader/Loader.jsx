@@ -19,11 +19,11 @@ const Loader = () => {
 
 export const FragmentLoader = () => {
   return (
-    <>
+    <div className={s.loaderContainer}>
       <TailSpin
         visible={true}
-        height="100"
-        width="100"
+        height="80"
+        width="80"
         color="var(--light-blue-3)"
         ariaLabel="tail-spin-loading"
         radius="1"
@@ -31,7 +31,7 @@ export const FragmentLoader = () => {
         wrapperClass=""
         zIndex="3"
       />
-    </>
+    </div>
   );
 };
 

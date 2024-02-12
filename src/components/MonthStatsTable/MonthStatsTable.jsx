@@ -10,11 +10,13 @@ import MonthStatsPaginator from "./MonthStatsPaginator/MonthStatsPaginator";
 import useGenerateDataArray from "../../hooks/useGenerateDataArray";
 import useModalHandlers from "../../hooks/useModalHandlers";
 import { getCustomPositionStyle } from "../../helpers/functions.js";
+import { FragmentLoader } from "../Loader/Loader.jsx";
 
 const MonthStatsTable = () => {
   const [selectedMonth, setSelectedMonth] = useState(moment());
   const dispatch = useDispatch();
-  const { monthWater } = useWaters();
+  const { monthWater, loading } = useWaters();
+ 
 
   useEffect(() => {
     const currentYear = moment().year();
@@ -28,11 +30,27 @@ const MonthStatsTable = () => {
   }, [dispatch]);
 
   const handlePrevMonth = () => {
-    setSelectedMonth(selectedMonth.clone().subtract(1, "month"));
+    const prevMonth = selectedMonth.clone().subtract(1, "month");
+    const year = prevMonth.format("YYYY");
+    const month = prevMonth.format("MM");
+  
+    setSelectedMonth(prevMonth);
+    dispatch(waterMonthUser({
+      year: year,
+      month: month,
+    }));
   };
 
   const handleNextMonth = () => {
-    setSelectedMonth(selectedMonth.clone().add(1, "month"));
+    const nextMonth = selectedMonth.clone().add(1, "month");
+    const year = nextMonth.format("YYYY");
+    const month = nextMonth.format("MM");
+
+    setSelectedMonth(nextMonth);
+    dispatch( waterMonthUser({
+      year: year,
+      month: month,
+    }))
   };
 
   const { selectedDay, showModal, handleDayClick, handleModalClose } =
@@ -48,12 +66,12 @@ const MonthStatsTable = () => {
         selectedMonth={selectedMonth}
       />
 
-      <ul className={s.monthStatsList}>
+      {loading ? (<FragmentLoader/>) : (<ul className={s.monthStatsList}>
         {dataArray.map(
           ({ date, dailyNorma, percentDailyNorm, consumptionCount }) => (
             <li className={s.monthStatsItem} key={date}>
               <button
-                className={s.monthStatsItemButton}
+                className={`${s.monthStatsItemButton} ${percentDailyNorm >= 100 ? s.highPercentButton : ''}`}
                 type="button"
                 onClick={() => handleDayClick(date)}
               >
@@ -73,7 +91,9 @@ const MonthStatsTable = () => {
             </li>
           )
         )}
-      </ul>
+      </ul>)}
+
+      
     </div>
   );
 };

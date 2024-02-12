@@ -5,6 +5,7 @@
   justify-content: start;
   align-items: start;
   width: 100%;
+  height: 332px;
 }
 
 .monthStatsList {
@@ -15,7 +16,7 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  /* position: relative; */
+ 
 }
 
 .monthStatsItem {
@@ -32,18 +33,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid #ff9d43;
+  border: 1px solid var(--orange);
   border-radius: 20px;
   padding: 7px;
   width: 34px;
   height: 34px;
-  background: #fff;
+  background: var(--white);
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
   text-align: center;
-  color: #2f2f2f;
+  color: var(--black);
+}
+
+.highPercentButton {
+  border: none;
 }
 
 .monthStatsItemPercent {
@@ -52,5 +57,5 @@
   font-size: 12px;
   line-height: 1.5;
   text-align: center;
-  color: #9ebbff;
+  color: var(--light-blue-3);
 }
