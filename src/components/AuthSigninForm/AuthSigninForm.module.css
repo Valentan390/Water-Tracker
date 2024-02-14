@@ -1,7 +1,6 @@
 .signinPageWraper {
-  width: 384px;
-  margin-left: 822px;
-  margin-right: 198px;
+  /* width: 100%; */
+ 
 }
 
 .signinPageTitle {
@@ -10,8 +9,8 @@
   font-size: 26px;
   font-style: normal;
   font-weight: 500;
-  line-height: 32px; /* 123.077% */
-  margin-bottom: 16px;
+  line-height: 1.23;
+  
 }
 
 .signinPageForm {
@@ -20,6 +19,8 @@
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: 16px;
+  width: 100%;
+ 
 }
 
 .signinPageLabel {
@@ -31,7 +32,7 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 133.333% */
+  line-height: 1.33;
   width: 100%;
   position: relative;
 }
@@ -50,7 +51,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 1.25;
   outline: none;
 }
 
@@ -70,7 +71,7 @@
 .signinPageInputButton {
   position: absolute;
   top: 43px;
-  left: 336px;
+  left: 240px;
   padding: 0;
 }
 
@@ -83,7 +84,7 @@
 
 .signinPageButton {
   display: flex;
-  padding: 10px 30px;
+  padding: 8px 30px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -93,17 +94,16 @@
   color: var(--Primery-Color-White, #fff);
   text-align: center;
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 133.333% */
+  line-height: 1.25;
   width: 100%;
   transition: var(--transition);
 }
 
 .signinPageButton:hover,
 .signinPageButton:focus {
-  font-size: 20px;
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
 }
 
@@ -116,7 +116,7 @@
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.28;
 }
 
 .signinPageLink {
@@ -125,12 +125,99 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 1.25;
   transition: var(--transition, 250ms cubic-bezier(0.4, 0, 0.2, 1));
 }
 
 .signinPageLink:hover,
 .signinPageLink:focus {
   color: var(--Secondary-color-5, #ff9d43);
-  font-size: 18px;
+}
+
+.signinPageBottle {
+  width: 100%;
+  height: 210px;
+  background-image: image-set(
+    url(../../images/mobile/Bottle-home-screen.webp) 1x,
+    url(../../images/mobile/Bottle-home-screen@2x.webp) 2x
+  );
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  position: relative;
+  top: 66px;
+}
+
+@media screen and (min-width: 768px) {
+  .signinPageWraper {
+    position: relative;
+  }
+
+  .signinPageForm {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    width: 336px;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .signinPageInputButton {
+    position: absolute;
+    top: 43px;
+    left: 286px;
+    padding: 0;
+  }
+
+  .signinPageButton {
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .signinPageBottle {
+    width: 516px;
+    height: 548px;
+    background-image: image-set(
+      url(../../images/tablet/Bottle-Home-Screen.webp) 1x,
+      url(../../images/tablet/Bottle-Home-Screen@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    position: absolute;
+    top: 0;
+    left: 193px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .signinPageForm {
+    width: 384px;
+    margin-left: 822px;
+    margin-right: 198px;
+  }
+
+  .signinPageInputButton {
+    top: 43px;
+    left: 336px;
+  }
+
+  .signinPageBottle {
+    width: 916px;
+    height: 680px;
+    background-image: image-set(
+      url(../../images/desctop/Bottle-for-Sign-in.webp) 1x,
+      url(../../images/desctop/Bottle-for-Sign-in@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    position: absolute;
+    top: -141px;
+    left: -155px;
+  }
 }

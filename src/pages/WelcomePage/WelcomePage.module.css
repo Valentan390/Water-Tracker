@@ -1,11 +1,13 @@
 .sectionWelcomePager {
   padding-top: 20px;
   padding-bottom: 40px;
-  /* background-image: url(../../images/desctop/Group-36.webp),
-    url(../../images/desctop/Background-Main-Page.webp);
-  background-size: contain, contain;
-  background-position: 0 49px, right bottom;
-  background-repeat: no-repeat, no-repeat; */
+  background-image: image-set(
+    url(../../images/mobile/Background-Main-Page.webp) 1x,
+    url(../../images/mobile/Background-Main-Page@2x.webp) 2x
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
 }
 
 .welcomePageWraper {
@@ -16,14 +18,32 @@
   align-items: center;
 }
 
-
 @media screen and (min-width: 768px) {
+  .sectionWelcomePager {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background-image: image-set(
+      url(../../images/tablet/Group-108.webp) 1x,
+      url(../../images/tablet/Group-108@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+
+  }
+
   .welcomePageWraper {
     gap: 60px;
     align-items: start;
+    background-image: image-set(
+      url(../../images/mobile/Bottle-home-screen.webp) 1x,
+      url(../../images/mobile/Bottle-home-screen@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: 540px;
+    background-position: 380px 230px;
   }
 }
-
 
 @media screen and (min-width: 1440px) {
   .sectionWelcomePager {
@@ -35,14 +55,13 @@
     background-position: 0 49px, right bottom;
     background-repeat: no-repeat, no-repeat;
   }
-  
+
   .welcomePageWraper {
     display: flex;
     gap: 81px;
     flex-direction: inherit;
     justify-content: center;
     align-items: flex-end;
+    background-image: none;
   }
 }
-
-

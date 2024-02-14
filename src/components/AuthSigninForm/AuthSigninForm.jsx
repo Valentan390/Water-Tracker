@@ -46,8 +46,8 @@ const AuthSigninForm = () => {
   };
   return (
     <div className={s.signinPageWraper}>
-      <h4 className={s.signinPageTitle}>Sign In</h4>
       <form className={s.signinPageForm} onSubmit={handleSubmit(onSubmit)}>
+        <h4 className={s.signinPageTitle}>Sign In</h4>
         <label className={s.signinPageLabel}>
           Enter your email
           <input
@@ -88,10 +88,12 @@ const AuthSigninForm = () => {
         <button className={s.signinPageButton} name="Signin" type="submit">
           Sign In
         </button>
+        <Link className={s.signinPageLink} to={"/signup"}>
+          Sign up
+        </Link>
       </form>
-      <Link className={s.signinPageLink} to={"/signup"}>
-        Sign up
-      </Link>
+
+      <div className={s.signinPageBottle}></div>
     </div>
   );
 };

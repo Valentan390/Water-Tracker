@@ -7,7 +7,7 @@ const HeaderLogo = () => {
   return (
     <Link to={"/"}>
       <div className={s.logoWraper}>
-        <svg width="40" height="40">
+        <svg width="40" height="48">
           <use href={`${sprite}#icon-Logo`} />
         </svg>
         <p className={s.logoTekst}>

@@ -3,22 +3,35 @@
   gap: 8px;
   justify-content: center;
   align-items: center;
-  width: 102px;
+  min-width: 84px;
 }
 
 .userAuthLink {
   color: var(--dark-blue, #407bff);
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 133.333% */
+  line-height: 1.25;
   transition: var(--transition);
 }
 
 .userAuthLink:hover,
 .userAuthLink:focus {
   color: var(--Secondary-color-5, #ff9d43);
+}
 
-  font-size: 20px;
+@media screen and (min-width: 768px) {
+  .userAuthWraper {
+    min-width: 90px;
+  }
+
+  .userAuthLink {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+  
+}
+@media screen and (min-width: 1440px) {
+  
 }

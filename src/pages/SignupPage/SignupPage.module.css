@@ -1,9 +1,33 @@
 .sectionSignupPage {
-  padding-top: 148px;
+  padding-top: 24px;
   padding-bottom: 196px;
-  background-image: url(../../images/desctop/Group-36.webp),
-    url(../../images/desctop/Bottle-for-Sign-in.webp);
+  background-image: url(../../images/mobile/Bottle-home-screen.webp),
+    url(../../images/mobile/Background-element-Sign-In.webp);
   background-repeat: no-repeat, no-repeat;
-  background-size: contain, 1100px;
-  background-position: 50% 50%, -78px 0;
+  background-size: 300px, cover;
+  background-position: bottom, center;
+}
+
+@media screen and (min-width: 768px) {
+  .sectionSignupPage {
+    padding-top: 40px;
+    padding-bottom: 172px;
+    background-image: url(../../images/tablet/Bottle-Home-Screen.webp),
+      url(../../images/tablet/Background-element-Home-Screen.webp);
+    background-repeat: no-repeat, no-repeat;
+    background-size: cover, cover;
+    background-position: 120px center, center;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sectionSignupPage {
+    padding-top: 148px;
+    padding-bottom: 196px;
+    background-image: url(../../images/desctop/Group-36.webp),
+      url(../../images/desctop/Bottle-for-Sign-in.webp);
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, 1100px;
+    background-position: 50% 50%, -78px 0;
+  }
 }

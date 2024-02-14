@@ -103,13 +103,10 @@ textarea {
 
 .container {
   width: 100%;
-  max-width: 375px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 24px;
   padding-right: 24px;
-  /* padding-left: 24px;
-  padding-right: 24px; */
 }
 
 @media screen and (min-width: 320px) {
@@ -130,8 +127,6 @@ textarea {
 @media screen and (min-width: 1440px) {
   .container {
     max-width: 1440px;
-    padding-left: 112px;
-    padding-right: 112px;
     padding-left: 90px;
     padding-right: 90px;
   }
