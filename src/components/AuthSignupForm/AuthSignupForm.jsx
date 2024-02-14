@@ -171,6 +171,7 @@ const AuthSignupForm = () => {
       <Link to={"/signin"} className={s.signupPageLink}>
         Sign in
       </Link>
+      <div className={s.signupPageBottle}></div>
     </div>
   );
 };

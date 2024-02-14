@@ -2,7 +2,7 @@
   width: 100%;
   /* margin-left: 822px; */
   /* margin-right: 198px; */
- 
+  position: relative;
 }
 
 .signupPageTitle {
@@ -139,14 +139,25 @@
   color: var(--Secondary-color-5, #ff9d43);
 }
 
-
+.signupPageBottle {
+  width: 280px;
+  height: 210px;
+  background-image: image-set(
+    url(../../images/mobile/Bottle-home-screen.webp) 1x,
+    url(../../images/mobile/Bottle-home-screen@2x.webp) 2x
+  );
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+  position: absolute;
+  top: 466px;
+}
 
 @media screen and (min-width: 768px) {
   .signupPageWraper {
     width: 336px;
     margin-left: 0;
     margin-right: auto;
-   
   }
   .signupPageTitle {
     line-height: 1.23;
@@ -162,6 +173,20 @@
     left: 293px;
   }
 
+  .signupPageBottle {
+    width: 500px;
+    height: 548px;
+    background-image: image-set(
+      url(../../images/tablet/Bottle-Home-Screen.webp) 1x,
+      url(../../images/tablet/Bottle-Home-Screen@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    position: absolute;
+    top: 117px;
+    left: 235px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -181,5 +206,20 @@
 
   .errorMessage {
     font-size: 12px;
+  }
+
+  .signupPageBottle {
+    width: 916px;
+    height: 680px;
+    background-image: image-set(
+      url(../../images/desctop/Bottle-for-Sign-in.webp) 1x,
+      url(../../images/desctop/Bottle-for-Sign-in@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    position: absolute;
+    top: -60px;
+    left: -1000px;;
   }
 }
