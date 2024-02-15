@@ -1,17 +1,18 @@
 import s from "./WaterRatioPanel.module.css";
 import sprite from "../../images/svg/sprite.svg";
 
-import DiscreteSliderLabel from "./Slider";
+// import DiscreteSliderLabel from "./Slider/Slider";
 import { setModalContent, setModalStatus } from "../../redux/modal/modalSlice";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../hooks/userModal";
 import { useWaters } from "../../hooks/userWaters";
+import WaterProgress from "./Slider/Slider";
 
 const WaterRatioPanel = () => {
   const dispatch = useDispatch();
   const { modalStatus } = useModal();
   const { todayWater } = useWaters();
-  const percentDailyNorma = todayWater?.percentDailyNormaUser || 50;
+  const percentDailyNorma = todayWater?.percentDailyNormaUser || 0;
 
   const handleOpenUserModal = () => {
     dispatch(setModalStatus(!modalStatus));
@@ -20,10 +21,7 @@ const WaterRatioPanel = () => {
 
   return (
     <div className={s.waterRatioPanelWrapper}>
-      <div className={s.waterRatioPanelContainer}>
-        <p className={s.waterRatioPanelTitel}>Today</p>
-        <DiscreteSliderLabel percentDailyNorma={percentDailyNorma} />
-      </div>
+      <WaterProgress percentDailyNorma={percentDailyNorma}/>
       <button
         className={s.waterRatioPanelButton}
         type="button"

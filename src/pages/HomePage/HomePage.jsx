@@ -12,6 +12,7 @@ const HomePage = () => {
         <div className={`${s.sectionHomePageWrapper} container`}>
           <div className={s.sectionHomePageDaily}>
             <DailyNorma />
+            <div className={s.sectionHomePageBottle}></div>
             <WaterRatioPanel />
           </div>
           <div className={s.sectionHomePageToday}>

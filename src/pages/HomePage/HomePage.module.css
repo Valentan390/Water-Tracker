@@ -1,22 +1,42 @@
 .sectionHomePage {
-  padding-top: 20px;
+  padding-top: 24px;
   padding-bottom: 40px;
-  background-image: url(../../images/desctop/Group-36.webp),
-    url(../../images/desctop/Bottle-for-Sign-in.webp);
-  background-repeat: no-repeat, no-repeat;
-  background-size: contain, 700px;
-  background-position: 50% 50%, 88px 64px;
+  background-image: image-set(
+    url(../../images/mobile/Background-element-Home-screen.webp) 1x,
+    url(../../images/mobile/Background-element-Home-screen@2x.webp) 2x
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0px 43px;
 }
 
 .sectionHomePageWrapper {
   display: flex;
   gap: 24px;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: start;
   align-items: start;
 }
 
 .sectionHomePageDaily {
-  flex-basis: calc((100% - 24px) / 2);
+  width: 100%;
+  flex-basis: 100%;
+  position: relative;
+}
+
+.sectionHomePageBottle {
+  min-width: 280px;
+  min-height: 208px;
+  background-image: image-set(
+    url(../../images/mobile/Bottle-home-screen.webp) 1x,
+    url(../../images/mobile/Bottle-home-screen@2x.webp) 2x
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  position: absolute;
+  top: 88px;
+  left: 0;
 }
 
 .sectionHomePageToday {
@@ -27,8 +47,101 @@
   align-items: start;
   width: 100%;
   border-radius: 10px;
-  padding: 32px 24px;
+  padding: 24px 8px;
   box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
   background: #ecf2ff;
   flex-basis: calc((100% - 24px) / 2);
+}
+
+@media screen and (min-width: 768px) {
+  .sectionHomePage {
+    padding-top: 36px;
+    padding-bottom: 44px;
+    background-image: image-set(
+      url(../../images/tablet/Background-element-Home-Screen.webp) 1x,
+      url(../../images/tablet/Background-element-Home-Screen@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px 0px;
+  }
+
+  .sectionHomePageWrapper {
+    gap: 50px;
+  }
+
+  .sectionHomePageBottle {
+    min-width: 518px;
+    min-height: 386px;
+    background-image: image-set(
+      url(../../images/tablet/Bottle-Home-Screen.webp) 1x,
+      url(../../images/tablet/Bottle-Home-Screen@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    position: absolute;
+    top: 0px;
+    left: 95px;
+  }
+
+  .sectionHomePageToday {
+    padding: 32px 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .sectionHomePage {
+    padding-top: 22px;
+    padding-bottom: 40px;
+    background-image: image-set(
+      url(../../images/desctop/Group-36.webp) 1x,
+      url(../../images/desctop/Group-36@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: -8px 58px;
+  }
+
+  .sectionHomePageWrapper {
+    display: flex;
+    gap: 24px;
+    flex-direction: inherit;
+    justify-content: center;
+    align-items: start;
+  }
+
+  .sectionHomePageDaily {
+    flex-basis: calc((100% - 24px) / 2);
+  }
+
+  .sectionHomePageBottle {
+    min-width: 582px;
+    min-height: 548px;
+    background-image: image-set(
+      url(../../images/desctop/Botle-Home-screen.webp) 1x,
+      url(../../images/desctop/Botle-Home-screen@2x.webp) 2x
+    );
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    position: absolute;
+    top: 0px;
+    left: 38px;
+    z-index: -1;
+  }
+
+  .sectionHomePageToday {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+    border-radius: 10px;
+    padding: 32px 24px;
+    box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.3);
+    background: #ecf2ff;
+    flex-basis: calc((100% - 24px) / 2);
+  }
 }

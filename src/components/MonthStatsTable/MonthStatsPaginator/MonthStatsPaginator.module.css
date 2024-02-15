@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 568px;
+  width: 100%;
 }
 
 .monthStatsPaginatorTitle {
@@ -15,9 +15,13 @@
 
 .monthStatsPaginatorCantainerButton {
   display: flex;
-  grid-area: 20px;
+  gap: 12px;
   justify-content: center;
   align-items: center;
+}
+
+.monthStatsPaginatorButton {
+  padding: 0;
 }
 
 .monthStatsPaginatorButtonSvg {

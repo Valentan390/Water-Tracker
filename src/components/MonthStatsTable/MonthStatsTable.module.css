@@ -5,18 +5,17 @@
   justify-content: start;
   align-items: start;
   width: 100%;
-  height: 332px;
+  height: 100%;
 }
 
 .monthStatsList {
   display: flex;
-  row-gap: 20px;
-  column-gap: 22px;
+  row-gap: 16px;
+  column-gap: 26px;
   justify-content: start;
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
- 
 }
 
 .monthStatsItem {
@@ -25,7 +24,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-basis: calc((100% - 198px) / 10);
+  flex-basis: calc((100% - 104px) / 5);
   position: relative;
 }
 
@@ -36,13 +35,13 @@
   border: 1px solid var(--orange);
   border-radius: 20px;
   padding: 7px;
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   background: var(--white);
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 1.25;
+  font-size: 14px;
+  line-height: 1.28;
   text-align: center;
   color: var(--black);
 }
@@ -54,8 +53,48 @@
 .monthStatsItemPercent {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: 10px;
+  line-height: 1.6;
   text-align: center;
   color: var(--light-blue-3);
+}
+
+@media screen and (min-width: 768px) {
+  .monthStatsPaginatorWrapper {
+    height: 340px;
+  }
+  .monthStatsList {
+    row-gap: 20px;
+    column-gap: 34px;
+  }
+
+  .monthStatsItem {
+    flex-basis: calc((100% - 306px) / 10);
+  }
+
+  .monthStatsItemButton {
+    width: 34px;
+    height: 34px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .monthStatsItemPercent {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .monthStatsPaginatorWrapper {
+    height: 332px;
+  }
+  .monthStatsList {
+    row-gap: 20px;
+    column-gap: 22px;
+  }
+
+  .monthStatsItem {
+    flex-basis: calc((100% - 198px) / 10);
+  }
 }
