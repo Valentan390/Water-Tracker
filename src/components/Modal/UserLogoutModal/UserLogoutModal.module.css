@@ -5,29 +5,7 @@
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
-  width: 592px;
-}
-
-.userLogoutModalСlose {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.userLogoutModalTitle {
-  color: var(--black);
-  font-family: Roboto;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 32px; /* 123.077% */
-}
-
-.userLogoutModalSvg {
-  width: 24px;
-  height: 24px;
-  stroke: var(--dark-blue);
+  min-width: 100%;
 }
 
 .userLogoutModalRealy {
@@ -36,19 +14,21 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 111.111% */
+  line-height: 1.11;
 }
 
 .userLogoutModalButton {
   display: flex;
+  flex-direction: column-reverse;
   gap: 24px;
   justify-content: flex-start;
   align-items: center;
+  min-width: 100%;
 }
 
 .userLogoutModalCancel {
   display: flex;
-  padding: 10px 30px;
+  padding: 8px 30px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -57,16 +37,21 @@
   color: var(--dark-blue);
   text-align: center;
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 133.333% */
-  width: 160px;
+  line-height: 1.25;
+  min-width: 100%;
+}
+
+.userLogoutModalCancel:focus,
+.userLogoutModalCancel:hover {
+  box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
 }
 
 .userLogoutModalLogout {
   display: flex;
-  padding: 10px 30px;
+  padding: 8px 30px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -76,9 +61,45 @@
   color: var(--white);
   text-align: center;
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 133.333% */
-  width: 160px;
+  line-height: 1.25;
+  min-width: 100%;
+}
+
+.userLogoutModalLogout:hover,
+.userLogoutModalLogout:focus {
+  box-shadow: 0 4px 14px 0 rgba(250, 48, 98, 0.54);
+}
+
+@media screen and (min-width: 768px) {
+  .userLogoutModalWrapper {
+    min-width: 592px;
+  }
+
+  .userLogoutModalButton {
+    flex-direction: row;
+    justify-content: end;
+  }
+
+  .userLogoutModalCancel {
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 1.33;
+    min-width: 160px;
+  }
+
+  .userLogoutModalLogout {
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 1.33;
+    min-width: 160px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .userLogoutModalButton {
+    justify-content: start;
+  }
 }

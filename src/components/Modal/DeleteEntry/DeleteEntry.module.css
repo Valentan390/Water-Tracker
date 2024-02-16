@@ -1,7 +1,7 @@
 .deleteEntryWrapper {
   border-radius: 10px;
   padding: 32px 24px;
-  width: 592px;
+  min-width: 280px;
   background: var(--white);
 }
 
@@ -12,25 +12,27 @@
   line-height: 1.11111;
   color: var(--black);
   margin: 24px 0;
+  max-width: 207px;
 }
 
 .deleteEntryButtonContainer {
   display: flex;
   gap: 24px;
+  flex-direction: column-reverse;
   justify-content: flex-end;
   align-items: center;
-  width: 100%;
+  min-width: 100%;
 }
 
 .deleteEntryButtonCancel {
   border-radius: 10px;
-  padding: 10px 30px;
-  width: 160px;
+  padding: 8px 30px;
+  min-width: 100%;
   background: var(--light-blue-2);
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 1.33333;
+  font-size: 16px;
+  line-height: 1.25;
   text-align: center;
   color: var(--dark-blue);
 }
@@ -42,15 +44,14 @@
 
 .deleteEntryButtonDelete {
   border-radius: 10px;
-  padding: 10px 30px;
-  width: 160px;
-  height: 44px;
+  padding: 8px 30px;
+  min-width: 100%;
   box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
   background: var(--red);
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 1.33333;
+  font-size: 16px;
+  line-height: 1.25;
   text-align: center;
   color: var(--white);
 }
@@ -58,4 +59,40 @@
 .deleteEntryButtonDelete:hover,
 .deleteEntryButtonDelete:focus {
   box-shadow: 0 4px 14px 0 rgba(234, 59, 91, 0.708);
+}
+
+@media screen and (min-width: 768px) {
+  .deleteEntryWrapper {
+    min-width: 592px;
+  }
+
+  .deleteEntry {
+    max-width: 100%;
+  }
+
+  .deleteEntryButtonContainer {
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+  }
+
+  .deleteEntryButtonCancel {
+    padding: 10px 30px;
+    min-width: 160px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .deleteEntryButtonDelete {
+    padding: 10px 30px;
+    min-width: 160px;
+    font-size: 18px;
+    line-height: 1.33;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .deleteEntryButtonContainer {
+    justify-content: start;
+  }
 }

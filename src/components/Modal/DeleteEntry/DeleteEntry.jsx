@@ -5,6 +5,8 @@ import {
   setModalContent,
   setModalStatus,
 } from "../../../redux/modal/modalSlice";
+import { motion, AnimatePresence } from "framer-motion";
+import { containerVariants } from "../../ModalContainer/ModalContainer.jsx";
 // import DeleteWater from "../../Button/DeleteWater/DeleteWater";
 import { deleteWater } from "../../../redux/waterUser/operations";
 import { useWaters } from "../../../hooks/userWaters";
@@ -23,28 +25,38 @@ const DeleteEntry = () => {
     handleCloseModal();
   };
   return (
-    <div className={s.deleteEntryWrapper}>
-      <CloseModal title="Delete entry" />
-      <p className={s.deleteEntry}>
-        Are you sure you want to delete the entry?
-      </p>
-      <div className={s.deleteEntryButtonContainer}>
-        <button
-          className={s.deleteEntryButtonCancel}
-          type="button"
-          onClick={handleCloseModal}
+    <>
+      <AnimatePresence>
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
         >
-          Cancel
-        </button>
-        <button
-          className={s.deleteEntryButtonDelete}
-          type="button"
-          onClick={handleDeleteWater}
-        >
-          Delete
-        </button>
-      </div>
-    </div>
+          <div className={s.deleteEntryWrapper}>
+            <CloseModal title="Delete entry" />
+            <p className={s.deleteEntry}>
+              Are you sure you want to delete the entry?
+            </p>
+            <div className={s.deleteEntryButtonContainer}>
+              <button
+                className={s.deleteEntryButtonCancel}
+                type="button"
+                onClick={handleCloseModal}
+              >
+                Cancel
+              </button>
+              <button
+                className={s.deleteEntryButtonDelete}
+                type="button"
+                onClick={handleDeleteWater}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+    </>
   );
 };
 

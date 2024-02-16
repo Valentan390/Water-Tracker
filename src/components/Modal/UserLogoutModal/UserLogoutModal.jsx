@@ -1,6 +1,5 @@
 import s from "./UserLogoutModal.module.css";
 
-import sprite from "../../../images/svg/sprite.svg";
 import { useDispatch } from "react-redux";
 import {
   setModalContent,
@@ -9,6 +8,7 @@ import {
 import { logOutUser } from "../../../redux/authUser/operations";
 import { motion, AnimatePresence } from "framer-motion";
 import { containerVariants } from "../../ModalContainer/ModalContainer.jsx";
+import CloseModal from "../../Button/CloseModal/CloseModal.jsx";
 
 const UserLogoutModal = () => {
   const dispatch = useDispatch();
@@ -32,14 +32,7 @@ const UserLogoutModal = () => {
           animate="visible"
         >
           <div className={s.userLogoutModalWrapper}>
-            <div className={s.userLogoutModalСlose}>
-              <h4 className={s.userLogoutModalTitle}>Log out</h4>
-              <button type="button" onClick={handleCloseModal}>
-                <svg className={s.userLogoutModalSvg}>
-                  <use href={`${sprite}#icon-outline`} />
-                </svg>
-              </button>
-            </div>
+            <CloseModal title={"Log out"} />
             <p className={s.userLogoutModalRealy}>
               Do you really want to leave?
             </p>
