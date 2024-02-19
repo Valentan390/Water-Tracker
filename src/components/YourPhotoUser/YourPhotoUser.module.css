@@ -1,5 +1,6 @@
 .yuorPfotoUserWrapper {
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
+  margin: 24px 0;
 }
 .settingModalYourphoto {
   color: var(--Primery-Color-Black, #2f2f2f);
