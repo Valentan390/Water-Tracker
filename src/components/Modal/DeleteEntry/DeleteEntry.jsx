@@ -18,38 +18,36 @@ const DeleteEntry = () => {
   };
 
   return (
-    <>
-      <AnimatePresence>
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className={s.deleteEntryWrapper}>
-            <CloseModal title="Delete entry" />
-            <p className={s.deleteEntry}>
-              Are you sure you want to delete the entry?
-            </p>
-            <div className={s.deleteEntryButtonContainer}>
-              <button
-                className={s.deleteEntryButtonCancel}
-                type="button"
-                onClick={handleCloseModal}
-              >
-                Cancel
-              </button>
-              <button
-                className={s.deleteEntryButtonDelete}
-                type="button"
-                onClick={handleDeleteWater}
-              >
-                Delete
-              </button>
-            </div>
+    <AnimatePresence>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className={s.deleteEntryWrapper}>
+          <CloseModal title="Delete entry" />
+          <p className={s.deleteEntry}>
+            Are you sure you want to delete the entry?
+          </p>
+          <div className={s.deleteEntryButtonContainer}>
+            <button
+              className={s.deleteEntryButtonCancel}
+              type="button"
+              onClick={handleCloseModal}
+            >
+              Cancel
+            </button>
+            <button
+              className={s.deleteEntryButtonDelete}
+              type="button"
+              onClick={handleDeleteWater}
+            >
+              Delete
+            </button>
           </div>
-        </motion.div>
-      </AnimatePresence>
-    </>
+        </div>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

@@ -13,6 +13,7 @@ const UserLogoModal = () => {
   const handleOpenLogOut = () => {
     dispatch(setModalContent("LogOut"));
   };
+
   return (
     <div className={s.userLogoModalWrapper}>
       <button
