@@ -1,0 +1,66 @@
+.amountWaterTitle {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.11111;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+
+.amountWater {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--black);
+  margin-bottom: 12px;
+}
+
+.amountWaterCantainer {
+  display: flex;
+  gap: 7px;
+  justify-content: start;
+  align-items: center;
+}
+
+.amountWaterButton {
+  border: 1px solid #9ebbff;
+  border-radius: 30px;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 2px 4px 0 rgba(64, 123, 255, 0.2);
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amountWaterSvg {
+  width: 19px;
+  height: 33px;
+  fill: var(--dark-blue);
+}
+
+.water {
+  border-radius: 40px;
+  padding: 6px 10px;
+  width: 92px;
+  height: 36px;
+  background: var(--light-blue-2);
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.33333;
+  text-align: center;
+  color: var(--dark-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.amountWaterSvgPlus {
+  width: 24px;
+  height: 24px;
+  stroke: var(--dark-blue);
+}

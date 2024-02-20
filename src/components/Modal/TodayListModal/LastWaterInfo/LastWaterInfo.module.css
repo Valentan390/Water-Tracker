@@ -1,0 +1,31 @@
+.lastWaterContainer {
+  display: flex;
+  gap: 14px;
+  justify-content: start;
+  align-items: center;
+  border-radius: 10px;
+  padding: 8px 24px;
+  background: var(--light-blue-1);
+}
+
+.lastWaterSvg {
+  width: 36px;
+  height: 36px;
+  fill: var(--dark-blue);
+}
+
+.lastWater {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.33333;
+  color: var(--dark-blue);
+}
+
+.lastWaterTime {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 2;
+  color: var(--black);
+}

@@ -1,0 +1,12 @@
+.timePickerCanteiner {
+  width: 100%;
+}
+
+.recordingTime {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--black);
+  margin-bottom: 12px;
+}
