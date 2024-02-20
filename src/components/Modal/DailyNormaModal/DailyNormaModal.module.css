@@ -1,46 +1,24 @@
 .dailyNormaModalWrapper {
   display: inline-flex;
-  padding: 32px 24px;
+  padding: 24px 12px;
   flex-direction: column;
-  align-items: flex-end;
+  justify-content: start;
+  align-items: start;
   gap: 24px;
   border-radius: 10px;
   background: var(--white);
-  width: 592px;
-}
-
-/* ============  My daily norma  ========= */
-
-.dailyNormaModalContainerDailyNorma {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.dailyNormaModalTitle {
-  color: var(--black);
-  font-family: Roboto;
-  font-size: 26px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 32px; /* 123.077% */
-}
-
-.dailyNormaModalContainerDailyNormaSvg {
-  width: 26px;
-  height: 26px;
-  stroke: var(--dark-blue);
+  max-width: 280px;
 }
 
 /* === dailyNorma Modal Container Gender  ===== */
 
 .dailyNormaModalContainerGender {
   display: flex;
-  row-gap: 12px;
+  flex-direction: column;
+  row-gap: 16px;
   column-gap: 24px;
   justify-content: start;
-  align-items: center;
+  align-items: start;
   flex-wrap: wrap;
   width: 100%;
 }
@@ -51,7 +29,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 1.25;
 }
 
 .dailyNormaModalGenderFormula {
@@ -60,7 +38,7 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 133.333% */
+  line-height: 1.33;
 }
 
 .dailyNormaModalGenderDescription {
@@ -69,7 +47,7 @@
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16px;
+  line-height: 1.33;
   padding: 10px;
   border-radius: 6px;
   border: 1px solid var(--light-blue-2);
@@ -92,37 +70,10 @@
   flex-direction: column;
   justify-content: start;
   align-items: start;
-}
-
-.dailyNormaModalFormaGenderTitle {
-  color: var(--black);
-  font-family: Roboto;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px; /* 111.111% */
-}
-
-.dailyNormaModalGenderInputContainer {
-  display: flex;
-  gap: 24px;
-  justify-content: start;
-  align-items: center;
   width: 100%;
 }
 
-.dailyNormaModalGenderFormaLabel {
-  display: flex;
-  gap: 8px;
-  justify-content: start;
-  align-items: center;
-  color: var(--black);
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px; /* 125% */
-}
+/* ==========     ================== */
 
 .dailyNormaModalFormaLabel {
   display: flex;
@@ -135,7 +86,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 1.25;
   width: 100%;
   position: relative;
 }
@@ -153,7 +104,7 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 1.25;
   width: 100%;
 }
 
@@ -179,8 +130,10 @@
   font-size: 12px;
   font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.28;
 }
+
+/* =========    ============== */
 
 .dailyNormaModalFormaRequired {
   display: flex;
@@ -191,7 +144,8 @@
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 20px; /* 125% */
+  line-height: 1.25;
+  max-width: 223px;
 }
 
 .dailyNormaModalFormaSpan {
@@ -200,8 +154,10 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; /* 133.333% */
+  line-height: 1.33;
 }
+
+/* ==============     ================= */
 
 .dailyNormaModalFormaWriteLable {
   display: flex;
@@ -214,15 +170,16 @@
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 20px; /* 111.111% */
+  line-height: 1.11;
   width: 100%;
   position: relative;
 }
 
+/* ==============    ============ */
+
 .dailyNormaModalFormaButton {
-  margin-left: auto;
   display: flex;
-  padding: 10px 30px;
+  padding: 8px 30px;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -232,9 +189,45 @@
   color: var(--Primery-Color-White, #fff);
   text-align: center;
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 500;
-  line-height: 24px; /* 133.333% */
-  width: 160px;
+  line-height: 1.25;
+  min-width: 100%;
+}
+
+.dailyNormaModalFormaButton:focus,
+.dailyNormaModalFormaButton:hover {
+  box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+}
+
+@media screen and (min-width: 768px) {
+  .dailyNormaModalWrapper {
+    padding: 32px 24px;
+    max-width: 704px;
+  }
+
+  .dailyNormaModalContainerGender {
+    display: flex;
+    flex-direction: row;
+    row-gap: 12px;
+  }
+
+  .dailyNormaModalFormaRequired {
+    max-width: 100%;
+  }
+
+  .dailyNormaModalFormaButton {
+    margin-left: auto;
+    padding: 10px 30px;
+    font-size: 18px;
+    line-height: 1.33;
+    min-width: 160px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .dailyNormaModalWrapper {
+    max-width: 592px;
+  }
 }

@@ -1,29 +1,22 @@
 import { useDispatch } from "react-redux";
 import CloseModal from "../../Button/CloseModal/CloseModal";
 import s from "./DeleteEntry.module.css";
-import {
-  setModalContent,
-  setModalStatus,
-} from "../../../redux/modal/modalSlice";
 import { motion, AnimatePresence } from "framer-motion";
 import { containerVariants } from "../../ModalContainer/ModalContainer.jsx";
-// import DeleteWater from "../../Button/DeleteWater/DeleteWater";
 import { deleteWater } from "../../../redux/waterUser/operations";
 import { useWaters } from "../../../hooks/userWaters";
+import useCloseModal from "../../../hooks/useCloseModal.js";
 
 const DeleteEntry = () => {
   const dispatch = useDispatch();
+  const handleCloseModal = useCloseModal();
   const { idForEditDeleteWater } = useWaters();
-
-  const handleCloseModal = () => {
-    dispatch(setModalStatus(false));
-    dispatch(setModalContent(null));
-  };
 
   const handleDeleteWater = () => {
     dispatch(deleteWater(idForEditDeleteWater));
     handleCloseModal();
   };
+
   return (
     <>
       <AnimatePresence>

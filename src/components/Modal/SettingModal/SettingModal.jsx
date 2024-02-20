@@ -4,10 +4,6 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import YourPhotoUser from "../../YourPhotoUser/YourPhotoUser";
-import {
-  setModalContent,
-  setModalStatus,
-} from "../../../redux/modal/modalSlice";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { updateUserSchema } from "../../../helpers/validation.js";
 import { updateInfoUser } from "../../../redux/authUser/operations.js";
@@ -18,9 +14,11 @@ import TextInput from "./TextInput/TextInput.jsx";
 import PasswordInput from "./PasswordInput/PasswordInput.jsx";
 import { inputPassword, users } from "./SettingModalDate/SettingModalDate.js";
 import GenderInput from "./GenderInput/GenderInput.jsx";
+import useCloseModal from "../../../hooks/useCloseModal.js";
 
 const SettingModal = () => {
   const { user } = useAuth();
+  const handleCloseModal = useCloseModal();
   const dispatch = useDispatch();
 
   const {
@@ -47,11 +45,6 @@ const SettingModal = () => {
     } catch (error) {
       toast.error(error.message);
     }
-  };
-
-  const handleCloseModal = () => {
-    dispatch(setModalStatus(false));
-    dispatch(setModalContent(null));
   };
 
   return (
