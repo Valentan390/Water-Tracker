@@ -25,7 +25,7 @@
   justify-content: center;
   align-items: center;
   flex-basis: calc((100% - 104px) / 5);
-  position: relative;
+  /* position: relative; */
 }
 
 .monthStatsItemButton {
@@ -70,6 +70,7 @@
 
   .monthStatsItem {
     flex-basis: calc((100% - 306px) / 10);
+    position: relative;
   }
 
   .monthStatsItemButton {

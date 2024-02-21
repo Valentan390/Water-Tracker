@@ -1,5 +1,7 @@
 import s from "./DaysGeneralStats.module.css";
 import sprite from "../../../images/svg/sprite.svg";
+import { useEffect, useRef } from "react";
+import { useMediaQuery } from "react-responsive";
 
 const DaysGeneralStats = ({
   selectedDay,
@@ -10,10 +12,44 @@ const DaysGeneralStats = ({
   consumptionCount,
   style,
 }) => {
+  const isLargeScreen = useMediaQuery({ query: "(min-width: 768px)" });
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleKeyPress = (event) => {
+      if (event.keyCode === 27) {
+        handleClose();
+      }
+    };
+
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        handleClose();
+      }
+    };
+
+    if (showModal) {
+      document.addEventListener("keydown", handleKeyPress);
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("keydown", handleKeyPress);
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showModal, handleClose]);
+
   return (
     <>
       {selectedDay && showModal && (
-        <div className={s.modalPositionStyle} style={style}>
+        <div
+          ref={modalRef}
+          className={s.modalPositionStyle}
+          style={isLargeScreen ? style : {}}
+        >
           <div className={s.modalButtonCantainer}>
             <p className={s.modalDate}> {selectedDay.format("D MMMM")}</p>
             <button onClick={handleClose}>
