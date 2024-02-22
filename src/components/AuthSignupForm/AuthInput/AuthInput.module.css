@@ -1,0 +1,56 @@
+.signupPageLabel {
+  display: flex;
+  gap: 8px;
+  flex-direction: column;
+  color: var(--black, #2f2f2f);
+  font-family: Roboto;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.33;
+  width: 100%;
+  position: relative;
+}
+
+.signupPageInput {
+  display: flex;
+  padding: 12px 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--light-blue-2, #d7e3ff);
+  color: var(--dark-blue, #407bff);
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25;
+  outline: none;
+}
+
+.signupPageInput::placeholder {
+  color: var(--light-blue-3, #9ebbff);
+}
+
+.signupPageInputError {
+  border: 1px solid var(--red, #ef5050);
+  color: var(--red, #ef5050);
+}
+
+.signupPageInputError::placeholder {
+  color: var(--red, #ef5050);
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  bottom: -18px;
+  color: var(--red, #ef5050);
+  font-family: Roboto;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1;
+}

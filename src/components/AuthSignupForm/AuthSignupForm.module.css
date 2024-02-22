@@ -21,65 +21,6 @@
   margin-bottom: 16px;
 }
 
-.signupPageLabel {
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-  color: var(--black, #2f2f2f);
-  font-family: Roboto;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.33;
-  width: 100%;
-  position: relative;
-}
-
-.signupPageInput {
-  display: flex;
-  padding: 12px 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--light-blue-2, #d7e3ff);
-  color: var(--dark-blue, #407bff);
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25;
-  outline: none;
-}
-
-.signupPageInput::placeholder {
-  color: var(--light-blue-3, #9ebbff);
-}
-
-.signupPageInputError {
-  border: 1px solid var(--red, #ef5050);
-  color: var(--red, #ef5050);
-}
-
-.signupPageInputError::placeholder {
-  color: var(--red, #ef5050);
-}
-
-.signupPageInputButton {
-  position: absolute;
-  top: 43px;
-  left: 233px;
-  padding: 0;
-}
-
-.signupPageInputButtonSvg {
-  width: 23px;
-  height: 23px;
-  stroke: var(--dark-blue, #407bff);
-  padding: 0;
-}
-
 .signupPageButton {
   display: flex;
   padding: 8px 30px;
@@ -103,23 +44,6 @@
 .signupPageButton:hover,
 .signupPageButton:focus {
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
-}
-
-.signupPageButton:disabled {
-  cursor: not-allowed;
-  background: var(--light-blue-1, #ecf2ff);
-}
-
-.errorMessage {
-  position: absolute;
-  left: 0;
-  bottom: -18px;
-  color: var(--red, #ef5050);
-  font-family: Roboto;
-  font-size: 10px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.1;
 }
 
 .signupPageLink {
@@ -149,6 +73,7 @@
   background-position: center bottom;
   position: absolute;
   top: 466px;
+  z-index: -1;
 }
 
 @media screen and (min-width: 768px) {
@@ -157,6 +82,7 @@
     margin-left: 0;
     margin-right: auto;
   }
+
   .signupPageTitle {
     line-height: 1.23;
   }
@@ -165,10 +91,6 @@
     padding: 10px 30px;
     font-size: 18px;
     line-height: 1.33;
-  }
-
-  .signupPageInputButton {
-    left: 293px;
   }
 
   .signupPageBottle {
@@ -194,14 +116,6 @@
     margin-right: 198px;
   }
 
-  .signupPageForm {
-    gap: 20px;
-  }
-
-  .signupPageInputButton {
-    left: 336px;
-  }
-
   .errorMessage {
     font-size: 12px;
   }
@@ -218,6 +132,6 @@
     background-position: center bottom;
     position: absolute;
     top: -60px;
-    left: -1000px;;
+    left: -1000px;
   }
 }
