@@ -24,6 +24,8 @@ const AuthInput = ({ label, name, register, errors, placeholder }) => {
             ? passwordVisible
               ? "text"
               : "password"
+            : name === "email"
+            ? "email"
             : "text"
         }
       />
