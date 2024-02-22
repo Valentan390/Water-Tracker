@@ -20,65 +20,6 @@
   width: 100%;
 }
 
-.signinPageLabel {
-  display: flex;
-  gap: 8px;
-  flex-direction: column;
-  color: var(--black, #2f2f2f);
-  font-family: Roboto;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.33;
-  width: 100%;
-  position: relative;
-}
-
-.signinPageInput {
-  display: flex;
-  padding: 12px 10px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--light-blue-2, #d7e3ff);
-  color: var(--dark-blue, #407bff);
-  font-family: Roboto;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25;
-  outline: none;
-}
-
-.signinPageInput::placeholder {
-  color: var(--light-blue-3, #9ebbff);
-}
-
-.signinPageInputError {
-  border: 1px solid var(--red, #ef5050);
-  color: var(--red, #ef5050);
-}
-
-.signinPageInputError::placeholder {
-  color: var(--red, #ef5050);
-}
-
-.signinPageInputButton {
-  position: absolute;
-  top: 43px;
-  left: 240px;
-  padding: 0;
-}
-
-.signinPageInputButtonSvg {
-  width: 23px;
-  height: 23px;
-  stroke: var(--dark-blue, #407bff);
-  padding: 0;
-}
-
 .signinPageButton {
   display: flex;
   padding: 8px 30px;
@@ -102,18 +43,6 @@
 .signinPageButton:hover,
 .signinPageButton:focus {
   box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
-}
-
-.errorMessage {
-  position: absolute;
-  left: 0;
-  bottom: -18px;
-  color: var(--red, #ef5050);
-  font-family: Roboto;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.28;
 }
 
 .signinPageLink {
@@ -163,13 +92,6 @@
     margin-right: auto;
   }
 
-  .signinPageInputButton {
-    position: absolute;
-    top: 43px;
-    left: 286px;
-    padding: 0;
-  }
-
   .signinPageButton {
     padding: 10px 30px;
     font-size: 18px;
@@ -197,11 +119,6 @@
     width: 384px;
     margin-left: 822px;
     margin-right: 198px;
-  }
-
-  .signinPageInputButton {
-    top: 43px;
-    left: 336px;
   }
 
   .signinPageBottle {

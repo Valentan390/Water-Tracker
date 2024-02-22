@@ -23,6 +23,18 @@ export const schemaSignup = yup.object().shape({
     .oneOf([yup.ref("password"), null], "Passwords do not match"),
 });
 
+export const schemaSignin = yup.object().shape({
+  email: yup
+    .string()
+    .required("Field is required")
+    .matches(emailRegexp, "Enter a correct email"),
+  password: yup
+    .string()
+    .required("Field is required")
+    .min(8, "Minimum 8 characters")
+    .max(64, "Maximum 64 characters"),
+});
+
 export const updateUserSchema = yup.object().shape({
   gender: yup.string().oneOf(["woman", "man"]),
   photo: yup.string(),
@@ -80,6 +92,7 @@ export const updateDailyNormaUsrSchema = yup.object().shape({
     .max(15, "Maximum 15L")
     .required("Field is required"),
 });
+
 export const editAndAddWaterSchema = yup.object().shape({
   waterVolume: yup
     .number()
