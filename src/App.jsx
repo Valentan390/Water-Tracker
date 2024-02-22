@@ -16,6 +16,8 @@ import "react-toastify/dist/ReactToastify.css";
 import { setModalContent, setModalStatus } from "./redux/modal/modalSlice.js";
 import ModalContent from "./components/ModalContent/ModalContent.jsx";
 import ModalContainer from "./components/ModalContainer/ModalContainer.jsx";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage/ForgotPasswordPage.jsx";
+import UpdatePasswordPage from "./pages/UpdatePasswordPage/UpdatePasswordPage.jsx";
 
 function App() {
   const dispatch = useDispatch();
@@ -54,6 +56,26 @@ function App() {
             path="/signin"
             element={
               <RestrictedRoute redirectTo="/home" component={SigninPage} />
+            }
+          />
+
+          <Route
+            path="/forgot-password"
+            element={
+              <RestrictedRoute
+                redirectTo="/home"
+                component={ForgotPasswordPage}
+              />
+            }
+          />
+
+          <Route
+            path="/update-password"
+            element={
+              <RestrictedRoute
+                redirectTo="/home"
+                component={UpdatePasswordPage}
+              />
             }
           />
 

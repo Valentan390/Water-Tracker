@@ -126,6 +126,7 @@ export const updateInfoUser = createAsyncThunk(
     }
   }
 );
+
 export const updatDailiNormaUser = createAsyncThunk(
   "users/updateDaliNorma",
   async (credentials, thunkAPI) => {
@@ -135,6 +136,34 @@ export const updatDailiNormaUser = createAsyncThunk(
       return res.data;
     } catch (error) {
       toast.error(error.response.data.message);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const forgotPasswordUser = createAsyncThunk(
+  "users/forgotPassword",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post("auth/restore-password", credentials);
+      toast.success("Email sent successfully");
+      return res.data;
+    } catch (error) {
+      toast.error("Incorrect email");
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updatePassworUser = createAsyncThunk(
+  "users/updatePasswor",
+  async (credentials, thunkAPI) => {
+    try {
+      const res = await axios.post("auth/reset-password", credentials);
+      toast.success("Update password successfully");
+      return res.data;
+    } catch (error) {
+      toast.error("Incorrect password");
       return thunkAPI.rejectWithValue(error.message);
     }
   }

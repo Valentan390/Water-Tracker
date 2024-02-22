@@ -20,7 +20,9 @@ const AuthInput = ({ label, name, register, errors, placeholder }) => {
         maxLength="33"
         placeholder={placeholder}
         type={
-          name === "password" || name === "repeatPassword"
+          name === "password" ||
+          name === "repeatPassword" ||
+          name === "newPassword"
             ? passwordVisible
               ? "text"
               : "password"
@@ -30,7 +32,9 @@ const AuthInput = ({ label, name, register, errors, placeholder }) => {
         }
       />
       <p className={s.errorMessage}>{errors[name]?.message}</p>
-      {(name === "password" || name === "repeatPassword") && (
+      {(name === "password" ||
+        name === "repeatPassword" ||
+        name === "newPassword") && (
         <PasswordVisibilityButton
           passwordVisible={passwordVisible}
           togglePasswordVisibility={togglePasswordVisibility}

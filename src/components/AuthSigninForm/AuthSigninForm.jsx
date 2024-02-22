@@ -51,6 +51,9 @@ const AuthSigninForm = () => {
         <button className={s.signinPageButton} name="Signin" type="submit">
           Sign In
         </button>
+        <Link className={s.signinPageLink} to={"/forgot-password"}>
+          Forgot password?
+        </Link>
         <Link className={s.signinPageLink} to={"/signup"}>
           Sign up
         </Link>

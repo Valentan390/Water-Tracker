@@ -35,6 +35,25 @@ export const schemaSignin = yup.object().shape({
     .max(64, "Maximum 64 characters"),
 });
 
+export const schemaForgotPassword = yup.object().shape({
+  email: yup
+    .string()
+    .required("Field is required")
+    .matches(emailRegexp, "Enter a correct email"),
+});
+
+export const shemaUpdatePassword = yup.object().shape({
+  newPassword: yup
+    .string()
+    .required("Field is required")
+    .min(8, "Minimum 8 characters")
+    .max(64, "Maximum 64 characters"),
+  repeatPassword: yup
+    .string()
+    .required("Confirm your password")
+    .oneOf([yup.ref("newPassword"), null], "Passwords do not match"),
+});
+
 export const updateUserSchema = yup.object().shape({
   gender: yup.string().oneOf(["woman", "man"]),
   photo: yup.string(),
