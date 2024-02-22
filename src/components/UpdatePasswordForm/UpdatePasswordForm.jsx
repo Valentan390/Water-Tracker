@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { shemaUpdatePassword } from "../../helpers/validation";
 import AuthInput from "../AuthSignupForm/AuthInput/AuthInput";
+import { updatePasswordInputs } from "./UpdatePasswordFormData.js";
 
 const UpdatePasswordForm = () => {
   //   const dispatch = useDispatch();
@@ -30,19 +31,6 @@ const UpdatePasswordForm = () => {
     //   toast.error(error.message);
     // }
   };
-
-  const updatePasswordInputs = [
-    {
-      label: "Enter your password",
-      name: "newPassword",
-      placeholder: "Password",
-    },
-    {
-      label: "Repeat password",
-      name: "repeatPassword",
-      placeholder: "Repeat Password",
-    },
-  ];
 
   return (
     <div className={s.signinPageWraper}>
