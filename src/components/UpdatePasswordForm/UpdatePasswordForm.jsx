@@ -1,35 +1,43 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import s from "../AuthSigninForm/AuthSigninForm.module.css";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { shemaUpdatePassword } from "../../helpers/validation";
 import AuthInput from "../AuthSignupForm/AuthInput/AuthInput";
 import { updatePasswordInputs } from "./UpdatePasswordFormData.js";
+import { updatePassworUser } from "../../redux/authUser/operations";
+import { toast } from "react-toastify";
 
 const UpdatePasswordForm = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
+
+  const searchParams = useSearchParams();
+  const navigate = useNavigate();
+  const resetToken = searchParams[0].get("resetToken");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    // reset,
+    reset,
   } = useForm({
     mode: "onTouched",
     resolver: yupResolver(shemaUpdatePassword),
   });
 
-  const onSubmit = async ({ newPassword }, e) => {
-    e.preventDefault();
-    console.log({ newPassword: newPassword });
-    // try {
-    //   await dispatch(logInUser(data));
-    //   reset();
-    //   toast.success("Logonization was successful");
-    // } catch (error) {
-    //   toast.error(error.message);
-    // }
+  const onSubmit = async ({ newPassword }) => {
+    try {
+      const response = await dispatch(
+        updatePassworUser({ newPassword, resetToken })
+      );
+      if (response.meta.requestStatus === "fulfilled") {
+        navigate("/signin");
+      }
+      reset();
+    } catch (error) {
+      toast.error("Error updating password:", error.message);
+    }
   };
 
   return (
