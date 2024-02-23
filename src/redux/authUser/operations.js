@@ -145,7 +145,7 @@ export const forgotPasswordUser = createAsyncThunk(
   "users/forgotPassword",
   async (credentials, thunkAPI) => {
     try {
-      const res = await axios.post("auth/restore-password", credentials);
+      const res = await axios.post("auth/change-password", credentials);
       toast.success("Email sent successfully");
       return res.data;
     } catch (error) {
