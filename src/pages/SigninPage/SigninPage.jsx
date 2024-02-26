@@ -1,16 +1,11 @@
-import s from "./SigninPage.module.css";
-
 import AuthSigninForm from "../../components/AuthSigninForm/AuthSigninForm";
+import MainAut from "../../components/MainAut/MainAut";
 
 const SigninPage = () => {
   return (
-    <main>
-      <section className={s.sectionSigninPage}>
-        <div className="container">
-          <AuthSigninForm />
-        </div>
-      </section>
-    </main>
+    <MainAut>
+      <AuthSigninForm />
+    </MainAut>
   );
 };
 

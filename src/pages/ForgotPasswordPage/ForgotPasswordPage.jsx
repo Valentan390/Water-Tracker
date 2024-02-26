@@ -1,16 +1,11 @@
-import s from "./ForgotPasswordPage.module.css";
-
 import ForgotPasswordForm from "../../components/ForgotPasswordForm/ForgotPasswordForm.jsx";
+import MainAut from "../../components/MainAut/MainAut.jsx";
 
 const ForgotPasswordPage = () => {
   return (
-    <main>
-      <section className={s.sectionForgotPasswordPage}>
-        <div className="container">
-          <ForgotPasswordForm />
-        </div>
-      </section>
-    </main>
+    <MainAut>
+      <ForgotPasswordForm />
+    </MainAut>
   );
 };
 

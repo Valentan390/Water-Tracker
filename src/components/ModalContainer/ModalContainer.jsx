@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo } from "react";
 import { createPortal } from "react-dom";
 import { useModal } from "../../hooks/userModal";
 import { motion, AnimatePresence } from "framer-motion";
+import useCloseModal from "../../hooks/useCloseModal";
 
 const modalRootElement = document.getElementById("ModalRoot");
 
@@ -24,27 +25,28 @@ export const containerVariants = {
   },
 };
 
-const ModalContainer = ({ onClose, children }) => {
+const ModalContainer = ({ children }) => {
   const element = useMemo(() => document.createElement("div"), []);
 
   const { modalStatus } = useModal();
+  const handleCloseModal = useCloseModal();
 
   const handleKeyDown = useCallback(
     (event) => {
       if (event.key === "Escape" && modalStatus) {
-        onClose();
+        handleCloseModal();
       }
     },
-    [modalStatus, onClose]
+    [modalStatus, handleCloseModal]
   );
 
   const handleBackdropClick = useCallback(
     (event) => {
       if (event.target === event.currentTarget) {
-        onClose();
+        handleCloseModal();
       }
     },
-    [onClose]
+    [handleCloseModal]
   );
 
   useEffect(() => {
