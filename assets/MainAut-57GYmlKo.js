@@ -1,0 +1,1 @@
+import{j as s}from"./index-rUe39L_f.js";const i="_sectionMain_wvmsf_1",t={sectionMain:i},c=({children:n})=>s.jsx("main",{children:s.jsx("section",{className:t.sectionMain,children:s.jsx("div",{className:"container",children:n})})});export{c as M};
