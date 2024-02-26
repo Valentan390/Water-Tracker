@@ -16,7 +16,7 @@ import ModalContainer from "./components/ModalContainer/ModalContainer.jsx";
 const WelcomePage = lazy(() => import("./pages/WelcomePage/WelcomePage"));
 const SignupPage = lazy(() => import("./pages/SignupPage/SignupPage.jsx"));
 const SigninPage = lazy(() => import("./pages/SigninPage/SigninPage.jsx"));
-const HomePage = lazy(() => import("./pages/SigninPage/SigninPage.jsx"));
+const HomePage = lazy(() => import("./pages/HomePage/HomePage.jsx"));
 const ForgotPasswordPage = lazy(() =>
   import("./pages/ForgotPasswordPage/ForgotPasswordPage.jsx")
 );

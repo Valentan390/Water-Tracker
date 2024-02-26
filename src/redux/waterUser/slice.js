@@ -48,6 +48,7 @@ const watersSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.todayWater = action.payload.dayWaterUser;
+        state.monthWater = action.payload.monthWaterUser;
         // state.todayWater.push(action.payload.dayWaterUser);
       })
       .addCase(addWaterUser.rejected, handleRejected)
@@ -61,6 +62,7 @@ const watersSlice = createSlice({
         // );
         // state.items.splice(index, 1);
         state.todayWater = action.payload.dayWaterUser;
+        state.monthWater = action.payload.monthWaterUser;
       })
       .addCase(deleteWater.rejected, handleRejected)
 
@@ -69,6 +71,7 @@ const watersSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         state.todayWater = action.payload.dayWaterUser;
+        state.monthWater = action.payload.monthWaterUser;
       })
       .addCase(editWater.rejected, handleRejected)
 
