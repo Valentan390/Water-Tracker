@@ -10,11 +10,10 @@ import { updateInfoUser } from "../../../redux/authUser/operations.js";
 import { motion, AnimatePresence } from "framer-motion";
 import { containerVariants } from "../../ModalContainer/ModalContainer.jsx";
 import CloseModal from "../../Button/CloseModal/CloseModal.jsx";
-import TextInput from "./TextInput/TextInput.jsx";
-import PasswordInput from "./PasswordInput/PasswordInput.jsx";
-import { inputPassword, users } from "./SettingModalDate/SettingModalDate.js";
+import { inputPasswords, users } from "./SettingModalDate/SettingModalDate.js";
 import GenderInput from "./GenderInput/GenderInput.jsx";
 import useCloseModal from "../../../hooks/useCloseModal.js";
+import AuthInput from "../../AuthSignupForm/AuthInput/AuthInput.jsx";
 
 const SettingModal = () => {
   const { user } = useAuth();
@@ -63,26 +62,28 @@ const SettingModal = () => {
           >
             <div className={s.settingModalYourGenderСontainer}>
               <GenderInput control={control} />
-              {users.map((user) => (
-                <TextInput
-                  key={user}
-                  label={user === "username" ? "Your name" : "E-mail"}
-                  name={user}
-                  errors={errors}
+              {users.map((user, index) => (
+                <AuthInput
+                  key={index}
+                  label={user.label}
+                  name={user.name}
                   register={register}
+                  errors={errors}
+                  placeholder={user.placeholder}
                 />
               ))}
             </div>
 
             <div className={s.settingModalUserPasswordWrapper}>
               <h4 className={s.settingModalUserPasswordTitle}>Password</h4>
-              {inputPassword.map(({ label, name }) => (
-                <PasswordInput
-                  key={label}
-                  label={`${label} password`}
-                  name={name}
-                  errors={errors}
+              {inputPasswords.map((inputPassword, index) => (
+                <AuthInput
+                  key={index}
+                  label={inputPassword.label}
+                  name={inputPassword.name}
                   register={register}
+                  errors={errors}
+                  placeholder={inputPassword.placeholder}
                 />
               ))}
             </div>
